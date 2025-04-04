@@ -69,62 +69,6 @@
             border-radius: 5px;
         }
 
-        /* Home Section */
-        .home {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            text-align: center;
-            padding: 20px;
-        }
-
-        /* Home Content Box */
-        .content-box {
-            background: rgba(0, 0, 0, 0.6); /* Dark semi-transparent box */
-            padding: 30px;
-            border-radius: 12px; /* Rounded corners */
-            max-width: 700px;
-            margin: auto;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1); /* Subtle glow */
-        }
-
-        /* Text inside box */
-        .content-box h3,
-        .content-box h1,
-        .content-box p {
-            color: #ffffff;
-        }
-
-        /* Social Icons */
-        .home-sci a {
-            font-size: 24px;
-            color: white;
-            margin: 10px;
-            transition: 0.3s;
-        }
-
-        .home-sci a:hover {
-            color: #00bcd4;
-        }
-
-        /* Button */
-        .btn-box {
-            display: inline-block;
-            padding: 10px 20px;
-            margin-top: 10px;
-            background: #00bcd4;
-            color: white;
-            border-radius: 6px;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .btn-box:hover {
-            background: #008c9e;
-        }
-
         /* Mobile Menu */
         @media (max-width: 768px) {
             #menu-icon {
@@ -178,23 +122,23 @@
             });
         });
 
-        document.addEventListener('DOMContentLoaded', function () {
-            particlesJS('particles-js', {
-                particles: {
-                    number: { value: 80 },
-                    size: { value: 3 },
-                    move: { speed: 2 },
-                    color: { value: "#ffffff" },
-                    opacity: { value: 0.2 }, // Reduce brightness
-                    line_linked: { 
-                        enable: true, 
-                        distance: 150, 
-                        color: "#ffffff",
-                        opacity: 0.15 // Reduce link brightness
-                    }
-                }
-            });
-        });
+       document.addEventListener('DOMContentLoaded', function () {
+    particlesJS('particles-js', {
+        particles: {
+            number: { value: 80 },
+            size: { value: 3 },
+            move: { speed: 2 },
+            color: { value: "#ffffff" },
+            opacity: { value: 0.2 }, // Reduce brightness
+            line_linked: { 
+                enable: true, 
+                distance: 150, 
+                color: "#ffffff",
+                opacity: 0.15 // Reduce link brightness
+            }
+        }
+    });
+});
     </script>
 
 </head>
@@ -216,10 +160,9 @@
             <a href="contact.html">Contact</a>
         </nav>
     </header>
-
     <!-- Home Section -->
-    <section id="home" class="home">
-        <div class="content-box">
+    <section class="home">
+        <div class="home-content">
             <h3>Hello, It's me</h3>
             <h1>Alen John</h1>
             <h3>And I'm a <span class="pro-text"></span></h3>
@@ -240,10 +183,10 @@
                 });
             </script>
 
-            <p style="text-align: justify;"> 
-                &emsp; This portfolio highlights my passion for <strong>cybersecurity</strong>, my expertise in monitoring and defending against security incidents, and my skills in ethical hacking.<br><br>
-                &emsp; I have practical experience in identifying threats, conducting security assessments, and responding to incidents that target networks, applications, and systems.<br><br>
-                &emsp; I’m constantly learning and improving my skills in SOC, penetration testing, and developing security solutions to mitigate risks and vulnerabilities.<br>
+            <p> 
+                This portfolio highlights my passion for <strong>cybersecurity</strong>, my expertise in monitoring and defending against security incidents, and my skills in ethical hacking.<br><br>
+                I have practical experience in identifying threats, conducting security assessments, and responding to incidents that target networks, applications, and systems.<br><br>
+                I’m constantly learning and improving my skills in SOC, penetration testing, and developing security solutions to mitigate risks and vulnerabilities.<br>
             </p>
 
             <div class="home-sci">
