@@ -2,170 +2,69 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | Alen</title>
 
+    <!-- Favicon & CSS -->
     <link rel="icon" type="image/png" href="sailogo.png">
     <link rel="stylesheet" href="style.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Boxicons & Typed.js -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #000;
-            color: #fff;
-            overflow-x: hidden;
-        }
+    <!-- Particles.js for background animation -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
+    <style>
+        /* Background Animation */
         #particles-js {
             position: fixed;
             width: 100%;
             height: 100%;
-            background: #0d0d0d;
+            background: #0d0d0d; /* Dark background */
             z-index: -1;
         }
 
-        .header {
-            width: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background-color: rgba(51, 51, 51, 0.9);
-            padding: 15px 20px;
-            z-index: 1000;
-            backdrop-filter: blur(5px);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 24px;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .menu-toggle {
-            display: none;
-            font-size: 28px;
-            cursor: pointer;
-            color: white;
-        }
-
-        .navbar {
-            display: flex;
-            gap: 15px;
-        }
-
-        .navbar a {
-            color: #fff;
-            text-decoration: none;
-            padding: 10px 15px;
-            font-size: 16px;
-            transition: 0.3s;
-        }
-
-        .navbar a:hover {
-            background-color: #575757;
-            border-radius: 5px;
-        }
-
-        @media (max-width: 768px) {
-            .navbar {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                right: 0;
-                background: rgba(51, 51, 51, 0.9);
-                width: 200px;
-                text-align: center;
-                padding: 10px;
-                border-radius: 5px;
-            }
-            .navbar.active {
-                display: flex;
-            }
-            .menu-toggle {
-                display: block;
-            }
-        }
-
-        .container {
-            margin: 100px auto;
-            background-color: rgba(0, 0, 0, 0.9);
-            padding: 50px;
-            border-radius: 15px;
-            max-width: 900px;
-            text-align: center;
-            z-index: 2;
-            position: relative;
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
-        }
-
-        section#about {
+        /* About Box */
+        .about-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 60px;
-            min-height: 100vh;
-            position: relative;
+            height: 100vh;
+            text-align: center;
         }
+
+        .about-box {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 40px;
+            width: 60%;
+            max-width: 600px;
+            border-radius: 15px; /* Square shape with rounded corners */
+            backdrop-filter: blur(10px);
+            color: white;
+            font-size: 18px;
+            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .about-box {
+                width: 80%;
+                font-size: 16px;
+            }
+        }
+
     </style>
-</head>
-<body>
-    <div id="particles-js"></div>
-    
-    <header class="header">
-        <a href="index.html" class="logo">Portfolio | Alen</a>
-        <div class="menu-toggle">&#9776;</div>
-        <nav class="navbar">
-            <a href="index.html">Home</a>
-            <a href="about.html" class="active">About</a>
-            <a href="skill.html">Skills</a>
-            <a href="projects.html">Projects</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
 
-    <section id="about">
-        <div class="container">
-            <div class="about-content">
-                <h2>About Me</h2>
-                <p class="typing"></p>
-                <p>
-                    Hello! I'm Alen John. I'm passionate about cybersecurity and ethical hacking. I specialize in monitoring security incidents, detecting threats, and conducting penetration tests.
-                </p>
-                <p>
-                    I have hands-on experience with various tools such as Wireshark, Metasploit, and Nmap, and have participated in several security assessments and vulnerability analyses.
-                </p>
-                <p>
-                    I’m constantly learning and evolving to stay ahead in the ever-changing cybersecurity landscape. My aim is to help organizations stay secure by identifying weaknesses and providing solutions.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var typed = new Typed(".typing", {
-                strings: ["Cybersecurity Enthusiast.", "Ethical Hacker.", "Security Researcher."],
-                typeSpeed: 50,
-                backSpeed: 30,
-                loop: true
-            });
-        });
-
+    <script defer>
         document.addEventListener('DOMContentLoaded', function () {
             particlesJS('particles-js', {
                 particles: {
-                    number: { value: 100 },
-                    size: { value: 4 },
-                    move: { speed: 3 },
+                    number: { value: 120 }, /* Increased particle count */
+                    size: { value: 4 }, /* Bigger particles */
+                    move: { speed: 3 }, /* Faster movement */
                     color: { value: "#ffffff" },
                     opacity: { value: 0.3 },
                     line_linked: { 
@@ -177,10 +76,27 @@
                 }
             });
         });
-
-        document.querySelector('.menu-toggle').addEventListener('click', function () {
-            document.querySelector('.navbar').classList.toggle('active');
-        });
     </script>
+
+</head>
+
+<body>
+
+    <!-- Background Animation -->
+    <div id="particles-js"></div>
+
+    <!-- About Section -->
+    <section class="about-container">
+        <div class="about-box">
+            <h2>About Me</h2>
+            <p>
+                I am <strong>Alen John</strong>, a passionate cybersecurity enthusiast specializing in 
+                SOC operations, ethical hacking, and security research. 
+                I have experience in monitoring security events, performing risk assessments, 
+                and implementing security measures to protect digital assets.
+            </p>
+        </div>
+    </section>
+
 </body>
 </html>
