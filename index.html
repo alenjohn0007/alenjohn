@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Alen</title>
 
@@ -25,6 +24,73 @@
             height: 100%;
             background: #0d0d0d;
             z-index: -1;
+        }
+
+        /* Navbar */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #222;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            color: cyan;
+            text-decoration: none;
+        }
+
+        .navbar {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        /* Hamburger Menu */
+        #menu-icon {
+            font-size: 30px;
+            color: cyan;
+            display: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                display: none;
+                position: absolute;
+                top: 60px;
+                right: 10px;
+                background: rgba(0, 0, 0, 0.8);
+                flex-direction: column;
+                width: 200px;
+                text-align: center;
+                padding: 10px;
+                border-radius: 8px;
+            }
+
+            .navbar a {
+                padding: 10px;
+                display: block;
+            }
+
+            #menu-icon {
+                display: block;
+            }
+
+            .navbar.active {
+                display: flex;
+            }
         }
 
         /* Centering Content */
@@ -86,46 +152,29 @@
             background: rgba(255, 255, 255, 0.3);
         }
 
-        /* Mobile Menu */
-        #menu-icon {
-            font-size: 30px;
-            color: white;
-            display: none;
-            cursor: pointer;
-        }
-
+        /* Responsive Fixes */
         @media (max-width: 768px) {
-            #menu-icon {
-                display: block;
+            .home-content {
+                max-width: 90%;
             }
 
-            .navbar {
-                position: absolute;
-                top: 60px;
-                right: -100%;
-                background: rgba(0, 0, 0, 0.9);
-                width: 200px;
-                flex-direction: column;
-                text-align: center;
-                transition: 0.3s;
-                padding: 10px;
+            .home-content h3 {
+                font-size: 22px;
             }
 
-            .navbar.active {
-                right: 10px;
+            .home-content h1 {
+                font-size: 36px;
             }
 
-            .navbar a {
-                display: block;
-                padding: 10px;
-                color: white;
-                text-decoration: none;
+            .home-content p {
+                font-size: 18px;
             }
         }
     </style>
 
     <script defer>
         document.addEventListener('DOMContentLoaded', function () {
+            // Initialize Particles.js
             particlesJS('particles-js', {
                 particles: {
                     number: { value: 80 },
@@ -142,12 +191,9 @@
                 }
             });
 
-            // Hamburger Menu Toggle
-            let menuIcon = document.getElementById('menu-icon');
-            let navbar = document.querySelector('.navbar');
-
-            menuIcon.addEventListener('click', function () {
-                navbar.classList.toggle('active');
+            // Toggle Navbar
+            document.getElementById('menu-icon').addEventListener('click', function () {
+                document.querySelector('.navbar').classList.toggle('active');
             });
         });
     </script>
