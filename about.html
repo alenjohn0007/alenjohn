@@ -219,25 +219,23 @@
         function toggleMenu() {
             document.querySelector(".navbar").classList.toggle("active");
         }
-
-        // Particles.js Config
-        document.addEventListener('DOMContentLoaded', function () {
-            particlesJS('particles-js', {
-                particles: {
-                    number: { value: 80 },
-                    size: { value: 3 },
-                    move: { speed: 2 },
-                    color: { value: "#ffffff" },
-                    opacity: { value: 0.2 }, // Reduced brightness
-                    line_linked: { 
-                        enable: true, 
-                        distance: 150, 
-                        color: "#ffffff",
-                        opacity: 0.15 // Reduced link brightness
-                    }
-                }
-            });
-        });
+       document.addEventListener('DOMContentLoaded', function () {
+    particlesJS('particles-js', {
+        particles: {
+            number: { value: 80 },
+            size: { value: 3 },
+            move: { speed: 2 },
+            color: { value: "#ffffff" },
+            opacity: { value: 0.2 }, // Reduce brightness
+            line_linked: { 
+                enable: true, 
+                distance: 150, 
+                color: "#ffffff",
+                opacity: 0.15 // Reduce link brightness
+            }
+        }
+    });
+});
     </script>
 
 </body>
