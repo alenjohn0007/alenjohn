@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Alen</title>
 
@@ -14,7 +13,7 @@
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
 
-    <!-- Particles.js for background animation -->
+    <!-- Particles.js for Background Animation -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
     <style>
@@ -25,14 +24,6 @@
             height: 100%;
             background: #0d0d0d; /* Dark background */
             z-index: -1;
-        }
-
-        /* Hamburger Icon */
-        #menu-icon {
-            display: none;
-            font-size: 28px;
-            color: white;
-            cursor: pointer;
         }
 
         /* Header */
@@ -69,10 +60,85 @@
             border-radius: 5px;
         }
 
-        /* Mobile Menu */
+        /* Home Section */
+        .home {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .home h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .home h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .pro-text {
+            font-size: 28px;
+            font-weight: bold;
+            color: #00aaff;
+        }
+
+        /* About Box */
+        .about-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            width: 80%;
+            max-width: 700px;
+            border-radius: 10px;
+            border-left: 5px solid #00aaff;
+            color: #ddd;
+            font-size: 18px;
+            line-height: 1.6;
+            text-align: justify;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            margin-top: 20px;
+        }
+
+        /* Social Links */
+        .home-sci a {
+            display: inline-block;
+            font-size: 24px;
+            color: white;
+            margin: 10px;
+            transition: 0.3s;
+        }
+
+        .home-sci a:hover {
+            color: #00aaff;
+        }
+
+        /* Mobile Responsive */
         @media (max-width: 768px) {
-            #menu-icon {
-                display: block;
+            .home {
+                padding-top: 100px; /* Prevents header overlap */
+            }
+
+            .home h3 {
+                font-size: 20px;
+            }
+
+            .home h1 {
+                font-size: 28px;
+            }
+
+            .pro-text {
+                font-size: 22px;
+            }
+
+            .about-box {
+                width: 90%;
+                font-size: 16px;
+                padding: 20px;
             }
 
             .navbar {
@@ -96,10 +162,6 @@
             .navbar.active {
                 display: flex;
             }
-
-            section {
-                margin-top: 100px;
-            }
         }
     </style>
 
@@ -120,27 +182,25 @@
                     menuIcon.classList.remove('active');
                 });
             });
+
+            // Particles.js Background
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 80 },
+                    size: { value: 3 },
+                    move: { speed: 2 },
+                    color: { value: "#ffffff" },
+                    opacity: { value: 0.2 },
+                    line_linked: { 
+                        enable: true, 
+                        distance: 150, 
+                        color: "#ffffff",
+                        opacity: 0.15
+                    }
+                }
+            });
         });
-
-       document.addEventListener('DOMContentLoaded', function () {
-    particlesJS('particles-js', {
-        particles: {
-            number: { value: 80 },
-            size: { value: 3 },
-            move: { speed: 2 },
-            color: { value: "#ffffff" },
-            opacity: { value: 0.2 }, // Reduce brightness
-            line_linked: { 
-                enable: true, 
-                distance: 150, 
-                color: "#ffffff",
-                opacity: 0.15 // Reduce link brightness
-            }
-        }
-    });
-});
     </script>
-
 </head>
 
 <body>
@@ -148,7 +208,7 @@
     <!-- Background Animation -->
     <div id="particles-js"></div>
 
-    <!-- Header with Hamburger Menu -->
+    <!-- Header -->
     <header class="header">
         <a href="#" class="logo">Portfolio | Alen</a>
         <i class='bx bx-menu' id="menu-icon"></i>
@@ -160,8 +220,9 @@
             <a href="contact.html">Contact</a>
         </nav>
     </header>
- <!-- Home Section -->
-    <section id="home" align="center"  class="home">
+
+    <!-- Home Section -->
+    <section id="home" class="home">
         <div class="home-content">
             <h3>Hello, It's me</h3>
             <h1>Alen John</h1>
@@ -183,36 +244,23 @@
                 });
             </script>
 
-<style>
-    .about-box {
-        background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
-        padding: 20px;
-        border-left: 5px solid #00aaff; /* Left border highlight */
-        border-radius: 8px;
-        color: #ddd;
-        font-size: 18px;
-        line-height: 1.6;
-        text-align: justify;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Soft shadow */
-    }
-</style> 
+            <div class="about-box">
+                <p>
+                    &emsp; This portfolio highlights my passion for <strong>cybersecurity</strong>, my expertise in monitoring and defending against security incidents, and my skills in ethical hacking.<br><br>
+                    &emsp; I have practical experience in identifying threats, conducting security assessments, and responding to incidents that target networks, applications, and systems.<br><br>
+                    &emsp; I’m constantly learning and improving my skills in SOC, penetration testing, and developing security solutions to mitigate risks and vulnerabilities.<br>
+                </p>
+            </div>
 
-<div class="about-box">
-    <p>
-        &emsp; This portfolio highlights my passion for <strong>cybersecurity</strong>, my expertise in monitoring and defending against security incidents, and my skills in ethical hacking.<br><br>
-        &emsp; I have practical experience in identifying threats, conducting security assessments, and responding to incidents that target networks, applications, and systems.<br><br>
-        &emsp; I’m constantly learning and improving my skills in SOC, penetration testing, and developing security solutions to mitigate risks and vulnerabilities.<br>
-    </p>
-</div>
-            <div align="center" class="home-sci">
+            <div class="home-sci">
                 <a href="https://github.com/alenjohn0007" target="_blank"><i class='bx bxl-github'></i></a>
                 <a href="https://www.linkedin.com/in/alenjohn9404/" target="_blank"><i class='bx bxl-linkedin'></i></a>
                 <a href="https://wa.me/918848603693" target="_blank"><i class='bx bxl-whatsapp'></i></a>
             </div>
-            <a  align="center"  href="Alen John_Resume.pdf" class="btn-box" target="_blank">Download CV</a>
+
+            <a href="Alen John_Resume.pdf" class="btn-box" target="_blank">Download CV</a>
         </div>
     </section>
-
 
 </body>
 </html>
