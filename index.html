@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Alen</title>
+
+    <!-- Favicon & CSS -->
+    <link rel="icon" type="image/png" href="IMAGES/sailogo.png">
+    <link rel="stylesheet" href="CSS/style.css">
+
+    <!-- Boxicons & Typed.js -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+    <style>
+        /* Hamburger icon style */
+        #menu-icon {
+            font-size: 2.5rem;
+            color: white;
+            cursor: pointer;
+            display: none;
+        }
+
+        header.header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            #menu-icon {
+                display: block;
+            }
+
+            .navbar {
+                position: absolute;
+                top: 100%;
+                right: 0;
+                background: rgba(51, 51, 51, 0.95);
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                display: none;
+                transition: all 0.3s ease;
+                padding: 1rem 0;
+            }
+
+            .navbar.active {
+                display: flex;
+            }
+
+            .navbar a {
+                margin: 1rem 0;
+                font-size: 1.5rem;
+            }
+
+            .home {
+                padding-top: 7rem;
+            }
+
+            section {
+                margin-top: 4rem;
+            }
+        }
+    </style>
+
+    <script defer>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuIcon = document.querySelector('#menu-icon');
+            const navbar = document.querySelector('.navbar');
+            const navLinks = document.querySelectorAll('.navbar a');
+
+            menuIcon.addEventListener('click', () => {
+                navbar.classList.toggle('active');
+                menuIcon.classList.toggle('active');
+            });
+
+            // Close menu on link click (mobile UX)
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navbar.classList.remove('active');
+                    menuIcon.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <canvas id="matrixCanvas"></canvas>
+    <script src="/JAVASCRIPT/matrix.js"></script>
+
+    <!-- Header with Hamburger Menu -->
+    <header class="header">
+        <a href="#" class="logo">Portfolio | Alen</a>
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <nav class="navbar">
+            <a href="index.html" style="--i:1;" class="active">Home</a>
+            <a href="about.html" style="--i:2;">About</a>
+            <a href="skill.html" style="--i:3;">Skills</a>
+            <a href="projects.html" style="--i:4;">Projects</a>
+            <a href="contact.html" style="--i:5;">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="home">
+        <div class="home-content" data-scroll data-scroll-speed="-5">
+            <h3 class="mu">Hello, It's me</h3>
+            <h1>Alen John</h1>
+            <h3>And I'm a <span class="pro-text">
+                <script>
+                   var typed = new Typed(".pro-text", {
+                      strings: [
+                        "SOC Analyst",
+                        "Ethical Hacker",
+                        "Security Researcher",
+                        "Incident Responder",
+                        "Web Developer"
+                      ],
+                      typeSpeed: 100,
+                      backSpeed: 100,
+                      backDelay: 1000,
+                      loop: true
+                    });
+                </script>
+            </span></h3>
+
+            <p>
+                &emsp; &emsp;This portfolio highlights my passion for <strong>cybersecurity</strong>, my expertise in monitoring and defending against security incidents, and my skills in ethical hacking.<br><br>
+                &emsp; &emsp;I have practical experience in identifying threats, conducting security assessments, and responding to incidents that target networks, applications, and systems.<br><br>
+                &emsp; &emsp;I’m constantly learning and improving my skills in SOC, penetration testing, and developing security solutions to mitigate risks and vulnerabilities.<br>
+            </p>
+
+            <div class="home-sci">
+                <a href="https://github.com/alenjohn0007" target="_blank"><i class='bx bxl-github'></i></a>
+                <a href="https://www.linkedin.com/in/alenjohn9404/" target="_blank"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://wa.me/918848603693" target="_blank"><i class='bx bxl-whatsapp'></i></a>
+            </div>
+            <a href="Alen John_Resume.pdf" class="btn-box" download>Download CV</a>
+        </div>
+    </section>
+
+</body>
+</html>

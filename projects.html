@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Alen</title>
+
+    <!-- Favicon & External CSS -->
+    <link rel="icon" type="image/png" href="IMAGES/sailogo.png">
+    <link rel="stylesheet" href="CSS/style.css">
+    
+    <!-- Boxicons for icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #0a0a0a;
+            color: #fff;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-in-out forwards;
+            text-align: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Navbar Styling */
+        .header {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: linear-gradient(45deg, rgba(0, 0, 0, 0.7), green, rgba(0, 0, 0, 0.7));
+            padding: 15px 20px;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            color: #fff;
+            text-decoration: none;
+            font-size: 24px;
+        }
+        .navbar {
+            display: flex;
+        }
+        .navbar a {
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        .navbar a:hover {
+            background-color: #3a3a3a;
+            border-radius: 5px;
+        }
+
+        /* Hamburger Menu */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background-color: rgba(51, 51, 51, 0.9);
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+            }
+            .navbar.active {
+                display: flex;
+            }
+            .navbar a {
+                display: block;
+                margin: 10px 0;
+            }
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        /* Projects Section */
+        #projects {
+            margin-top: 80px;
+            padding: 50px 20px;
+        }
+        h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        /* Carousel Styling */
+        .carousel {
+            position: relative;
+            width: 80%;
+            max-width: 600px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 10px;
+            border: 2px solid #00ff00;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-item {
+            min-width: 100%;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            transition: 0.5s;
+        }
+        .project-title {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #00ff00;
+        }
+        .project-description {
+            font-size: 16px;
+            color: #ddd;
+        }
+
+        /* Carousel Buttons */
+        .carousel-buttons {
+            margin-top: 15px;
+        }
+        .carousel-button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            background: #00ff00;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .carousel-button:hover {
+            background: #009900;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="logo">Portfolio | Alen</a>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="skill.html">Skills</a>
+            <a href="projects.html" class="active">Projects</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="carousel">
+            <div class="carousel-track">
+                <div class="carousel-item">
+                    <div class="project-title">SOC Project - Website Log Monitoring Using Splunk</div>
+                    <div class="project-description">Deploying WordPress on Ubuntu and monitoring its logs using Splunk for real-time security analysis.</div>
+                </div>
+                <div class="carousel-item">
+                    <div class="project-title">MCA Project - Anganwadi Management System</div>
+                    <div class="project-description">A web-based system to manage Anganwadi centers, including child registration, staff scheduling, and vaccination tracking.</div>
+                </div>
+                 <div class="carousel-item">
+                    <div class="project-title">BCA Project - Latex Sales And Service System</div>
+                    <div class="project-description">A web application for managing latex product sales and service tracking for customers.</div>
+                </div>
+                <div class="carousel-item">
+                    <div class="project-title">Wazuh Windows 11 Monitoring</div>
+                    <div class="project-description">Monitoring Windows 11 endpoints using Wazuh SIEM for log analysis, intrusion detection, and compliance auditing.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-buttons">
+            <button class="carousel-button" onclick="prevSlide()">Prev</button>
+            <button class="carousel-button" onclick="nextSlide()">Next</button>
+        </div>
+    </section>
+
+<script>
+    let index = 0;
+    const track = document.querySelector('.carousel-track');
+    const slides = document.querySelectorAll('.carousel-item');
+    const totalSlides = slides.length;
+
+    function updateSlide() {
+        track.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    function nextSlide() {
+        index = (index + 1) % totalSlides;
+        updateSlide();
+    }
+
+    function prevSlide() {
+        index = (index - 1 + totalSlides) % totalSlides;
+        updateSlide();
+    }
+
+    setInterval(nextSlide, 4000); // Auto-slide every 4 seconds
+
+    function toggleMenu() {
+        document.querySelector('.navbar').classList.toggle('active');
+    }
+</script>
+
+</body>
+</html> 
