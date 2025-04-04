@@ -85,6 +85,43 @@
         .floating-icons i:hover {
             background: rgba(255, 255, 255, 0.3);
         }
+
+        /* Mobile Menu */
+        #menu-icon {
+            font-size: 30px;
+            color: white;
+            display: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            #menu-icon {
+                display: block;
+            }
+
+            .navbar {
+                position: absolute;
+                top: 60px;
+                right: -100%;
+                background: rgba(0, 0, 0, 0.9);
+                width: 200px;
+                flex-direction: column;
+                text-align: center;
+                transition: 0.3s;
+                padding: 10px;
+            }
+
+            .navbar.active {
+                right: 10px;
+            }
+
+            .navbar a {
+                display: block;
+                padding: 10px;
+                color: white;
+                text-decoration: none;
+            }
+        }
     </style>
 
     <script defer>
@@ -103,6 +140,14 @@
                         opacity: 0.15
                     }
                 }
+            });
+
+            // Hamburger Menu Toggle
+            let menuIcon = document.getElementById('menu-icon');
+            let navbar = document.querySelector('.navbar');
+
+            menuIcon.addEventListener('click', function () {
+                navbar.classList.toggle('active');
             });
         });
     </script>
