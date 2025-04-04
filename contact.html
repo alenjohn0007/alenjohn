@@ -12,17 +12,11 @@
     
     <!-- External CSS (boxicons) -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- Particle.js CDN -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
     <style>
-        /* Full-page background */
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            background: #0a0a0a; /* Dark background */
-            z-index: -1; /* Ensure particles stay in the background */
-        }
-
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -36,6 +30,17 @@
             text-align: center;
             padding: 50px;
             overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Particles background container */
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Ensure particles are behind content */
         }
 
         .header {
@@ -177,8 +182,7 @@
     </style>
 </head>
 <body>
-
-    <!-- Particles.js Background -->
+    <!-- Particle.js Background -->
     <div id="particles-js"></div>
 
     <header class="header">
@@ -213,28 +217,83 @@
     </div>
 
     <script>
+        // Initialize Particle.js
+        particlesJS("particles-js", {
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: "#ffffff"
+                },
+                shape: {
+                    type: "circle",
+                    stroke: {
+                        width: 0,
+                        color: "#000000"
+                    }
+                },
+                opacity: {
+                    value: 0.5,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                    anim: {
+                        enable: false,
+                        speed: 4,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#ffffff",
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: "none",
+                    random: false,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "repulse"
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: "push"
+                    }
+                }
+            },
+            retina_detect: true
+        });
+
         function toggleMenu() {
             var navbar = document.getElementById("navbar");
             navbar.classList.toggle("active");
         }
-
-        document.addEventListener('DOMContentLoaded', function () {
-            particlesJS('particles-js', {
-                particles: {
-                    number: { value: 80 },
-                    size: { value: 3 },
-                    move: { speed: 2 },
-                    color: { value: "#ffffff" },
-                    opacity: { value: 0.2 },
-                    line_linked: {
-                        enable: true,
-                        distance: 150,
-                        color: "#ffffff",
-                        opacity: 0.15
-                    }
-                }
-            });
-        });
     </script>
 </body>
 </html>
