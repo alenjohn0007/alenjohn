@@ -160,117 +160,43 @@
             <a href="contact.html">Contact</a>
         </nav>
     </header>
+ <!-- Home Section -->
+    <section id="home" class="home">
+        <div class="home-content">
+            <h3>Hello, It's me</h3>
+            <h1>Alen John</h1>
+            <h3>And I'm a <span class="pro-text"></span></h3>
 
-<!-- Home Section -->
-<section id="home" class="home">
-    <div class="home-content">
-        <h3>Hello, It's me</h3>
-        <h1>Alen John</h1>
-        <h3>And I'm a <span class="pro-text"></span></h3>
+            <script>
+                var typed = new Typed(".pro-text", {
+                    strings: [
+                        "SOC Analyst",
+                        "Ethical Hacker",
+                        "Security Researcher",
+                        "Incident Responder",
+                        "Web Developer"
+                    ],
+                    typeSpeed: 100,
+                    backSpeed: 100,
+                    backDelay: 1000,
+                    loop: true
+                });
+            </script>
 
-        <script>
-            var typed = new Typed(".pro-text", {
-                strings: [
-                    "SOC Analyst",
-                    "Ethical Hacker",
-                    "Security Researcher",
-                    "Incident Responder",
-                    "Web Developer"
-                ],
-                typeSpeed: 100,
-                backSpeed: 100,
-                backDelay: 1000,
-                loop: true
-            });
-        </script>
+            <p style="text-align: justify;"> 
+                &emsp; This portfolio highlights my passion for <strong>cybersecurity</strong>, my expertise in monitoring and defending against security incidents, and my skills in ethical hacking.<br><br>
+                &emsp; I have practical experience in identifying threats, conducting security assessments, and responding to incidents that target networks, applications, and systems.<br><br>
+                &emsp; I’m constantly learning and improving my skills in SOC, penetration testing, and developing security solutions to mitigate risks and vulnerabilities.<br>
+            </p>
 
-        <p style="text-align: justify;"> 
-            &emsp; This portfolio highlights my passion for <strong>cybersecurity</strong>, my expertise in monitoring and defending against security incidents, and my skills in ethical hacking.<br><br>
-            &emsp; I have practical experience in identifying threats, conducting security assessments, and responding to incidents that target networks, applications, and systems.<br><br>
-            &emsp; I’m constantly learning and improving my skills in SOC, penetration testing, and developing security solutions to mitigate risks and vulnerabilities.<br>
-        </p>
-
-        <div class="home-sci">
-            <a href="https://github.com/alenjohn0007" target="_blank"><i class='bx bxl-github'></i></a>
-            <a href="https://www.linkedin.com/in/alenjohn9404/" target="_blank"><i class='bx bxl-linkedin'></i></a>
-            <a href="https://wa.me/918848603693" target="_blank"><i class='bx bxl-whatsapp'></i></a>
+            <div class="home-sci">
+                <a href="https://github.com/alenjohn0007" target="_blank"><i class='bx bxl-github'></i></a>
+                <a href="https://www.linkedin.com/in/alenjohn9404/" target="_blank"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://wa.me/918848603693" target="_blank"><i class='bx bxl-whatsapp'></i></a>
+            </div>
+            <a href="Alen John_Resume.pdf" class="btn-box" target="_blank">Download CV</a>
         </div>
-        <a href="Alen John_Resume.pdf" class="btn-box" target="_blank">Download CV</a>
-    </div>
-</section>
-
-<style>
-    /* Home Section */
-    .home {
-        text-align: center;
-        padding: 100px 20px; /* Increase padding to give more space */
-        background-color: #0a0a0a;
-        color: #fff;
-        position: relative;
-    }
-
-    .home-content {
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .home h3 {
-        font-size: 30px; /* Increase the size of the 'Hello, It's me' */
-        margin-bottom: 20px;
-        letter-spacing: 2px;
-        font-weight: 500;
-    }
-
-    .home h1 {
-        font-size: 60px; /* Increase size of 'Alen John' */
-        font-weight: 700;
-        margin-bottom: 10px;
-    }
-
-    .home h3 span.pro-text {
-        font-size: 40px; /* Increase the size of the profession text */
-        font-weight: 600;
-        color: #1edb09; /* Optional: Add color to the text */
-    }
-
-    .home p {
-        font-size: 18px; /* Increase the size of the paragraph text */
-        line-height: 1.8;
-        margin: 20px auto;
-        max-width: 800px;
-    }
-
-    .home-sci {
-        margin: 30px 0;
-    }
-
-    .home-sci a {
-        font-size: 30px;
-        margin: 0 10px;
-        color: #fff;
-        transition: color 0.3s ease-in-out;
-    }
-
-    .home-sci a:hover {
-        color: #1edb09; /* Optional: Hover effect for social icons */
-    }
-
-    .btn-box {
-        display: inline-block;
-        padding: 12px 30px;
-        font-size: 18px;
-        color: #fff;
-        background-color: #1edb09;
-        border-radius: 30px;
-        text-decoration: none;
-        margin-top: 20px;
-        transition: background-color 0.3s ease-in-out;
-    }
-
-    .btn-box:hover {
-        background-color: #17a209;
-    }
-</style>
+    </section>
 
 
 </body>
