@@ -5,22 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | Alen</title>
 
-    <!-- Favicon and External Styles -->
+    <!-- Favicon and Styles -->
     <link rel="icon" type="image/png" href="sailogo.png">
     <link rel="stylesheet" href="style.css">
 
     <!-- External Libraries -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
     <style>
         /* General Styling */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            height: 100%;
-            background-color: #000000;
+            background-color: #000;
             color: #fff;
             overflow-x: hidden;
         }
@@ -28,15 +26,18 @@
         /* Particles.js Background */
         #particles-js {
             position: fixed;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
-            z-index: -10; /* Pushed far behind */
-            background-color: #000000;
+            z-index: -2; /* Ensures it stays behind content */
+            top: 0;
+            left: 0;
         }
 
-        /* Navbar Styling */
+        #particles-js canvas {
+            opacity: 0.3; /* Reduce brightness */
+        }
+
+        /* Navbar */
         .header {
             width: 100%;
             position: fixed;
@@ -58,6 +59,15 @@
             font-weight: bold;
         }
 
+        /* Hamburger Menu */
+        .menu-toggle {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: white;
+        }
+
+        /* Navigation */
         .navbar {
             display: flex;
             gap: 15px;
@@ -76,55 +86,41 @@
             border-radius: 5px;
         }
 
-        /* Hamburger Icon */
-        .menu-icon {
-            display: none;
-            font-size: 28px;
-            color: white;
-            cursor: pointer;
-        }
-
-        /* Responsive Design */
-        @media screen and (max-width: 768px) {
+        /* Responsive Navbar */
+        @media (max-width: 768px) {
             .navbar {
                 display: none;
                 flex-direction: column;
                 position: absolute;
                 top: 60px;
                 right: 0;
-                background-color: rgba(51, 51, 51, 0.9);
-                width: 100%;
+                background: rgba(51, 51, 51, 0.9);
+                width: 200px;
                 text-align: center;
-                padding: 10px 0;
-            }
-
-            .navbar a {
-                display: block;
                 padding: 10px;
-            }
-
-            .menu-icon {
-                display: block;
+                border-radius: 5px;
             }
 
             .navbar.active {
                 display: flex;
             }
 
-            section#about {
-                margin-top: 140px; /* Adjusted for mobile navbar */
+            .menu-toggle {
+                display: block;
             }
         }
 
         /* Centered Box Container */
         .container {
-            position: relative;
-            z-index: 10; /* Ensures it appears above particles */
-            background-color: rgba(255, 255, 255, 0.1); /* Light transparent effect */
+            margin: 120px auto 50px auto;
+            background-color: rgba(0, 0, 0, 0.8);
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.2); /* Soft glowing effect */
+            max-width: 800px;
             text-align: center;
+            z-index: 2;
+            position: relative;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
         }
 
         /* About Section */
@@ -133,11 +129,11 @@
             justify-content: center;
             align-items: center;
             padding: 40px;
-            background-color: #000000;
+            min-height: 100vh;
+            position: relative;
         }
 
         .about-content {
-            max-width: 800px;
             padding: 20px;
             text-align: justify;
         }
@@ -149,7 +145,7 @@
             color: #00ffcc;
         }
 
-        /* Glow Effect on Hover */
+        /* Hover Effect */
         .fadeInPoint:hover {
             transform: scale(1.05);
             text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
@@ -158,14 +154,14 @@
 </head>
 <body>
 
-    <!-- Particles.js Background -->
+    <!-- Particles Background (Outside Content Box) -->
     <div id="particles-js"></div>
 
     <header class="header">
         <a href="index.html" class="logo">Portfolio | Alen</a>
 
-        <!-- Hamburger Icon -->
-        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <!-- Hamburger Menu Icon -->
+        <div class="menu-toggle">&#9776;</div>
 
         <nav class="navbar">
             <a href="index.html">Home</a>
@@ -189,15 +185,18 @@
                 </p>
 
                 <p class="fadeInPoint">
-                    My goal is to become a top cybersecurity professional, helping organizations secure their infrastructure. I am also working towards earning my CEH (Certified Ethical Hacker) certification.
+                    I have hands-on experience with various tools such as Wireshark, Metasploit, and Nmap, and have participated in several security assessments and vulnerability analyses.
                 </p>
 
                 <p class="fadeInPoint">
-                    I strongly believe that cybersecurity is not just about hacking—it's about making the digital world a safer place for everyone.
+                    I’m constantly learning and evolving to stay ahead in the ever-changing cybersecurity landscape. My aim is to help organizations stay secure by identifying weaknesses and providing solutions.
                 </p>
             </div>
         </div>
     </section>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
     <script>
         // Typing Animation
@@ -210,12 +209,7 @@
             });
         });
 
-        // Responsive Navbar Toggle
-        function toggleMenu() {
-            document.querySelector(".navbar").classList.toggle("active");
-        }
-
-        // Particles.js Config
+        // Particles.js Config (Stays Outside the Box)
         document.addEventListener('DOMContentLoaded', function () {
             particlesJS('particles-js', {
                 particles: {
@@ -223,15 +217,20 @@
                     size: { value: 3 },
                     move: { speed: 2 },
                     color: { value: "#ffffff" },
-                    opacity: { value: 0.2 }, // Reduce brightness
+                    opacity: { value: 0.2 }, // Reduced brightness
                     line_linked: { 
                         enable: true, 
                         distance: 150, 
                         color: "#ffffff",
-                        opacity: 0.15 // Reduce link brightness
+                        opacity: 0.15 // Reduced link brightness
                     }
                 }
             });
+        });
+
+        // Hamburger Menu Toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function () {
+            document.querySelector('.navbar').classList.toggle('active');
         });
     </script>
 
