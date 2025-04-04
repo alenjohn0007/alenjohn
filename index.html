@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Alen</title>
 
@@ -13,7 +14,7 @@
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
 
-    <!-- Particles.js -->
+    <!-- Particles.js for background animation -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
     <style>
@@ -22,37 +23,37 @@
             position: fixed;
             width: 100%;
             height: 100%;
-            background: #0d0d0d;
+            background: #0d0d0d; /* Dark background */
             z-index: -1;
         }
 
-        /* Header & Navbar */
-        header {
+        /* Hamburger Icon */
+        #menu-icon {
+            display: none;
+            font-size: 28px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Header */
+        header.header {
             position: fixed;
             width: 100%;
             top: 0;
             left: 0;
-            background: rgba(20, 20, 20, 0.9);
-            backdrop-filter: blur(5px);
+            background-color: rgba(51, 51, 51, 0.9);
             z-index: 1000;
             padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-
-        /* Logo */
-        .logo {
-            font-size: 22px;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
+            backdrop-filter: blur(5px);
         }
 
         /* Navbar */
         .navbar {
             display: flex;
-            gap: 20px;
+            gap: 15px;
         }
 
         .navbar a {
@@ -68,17 +69,9 @@
             border-radius: 5px;
         }
 
-        /* Hamburger Menu */
-        .menu-icon {
-            display: none;
-            font-size: 28px;
-            cursor: pointer;
-            color: white;
-        }
-
-        /* Mobile Navbar */
+        /* Mobile Menu */
         @media (max-width: 768px) {
-            .menu-icon {
+            #menu-icon {
                 display: block;
             }
 
@@ -94,102 +87,72 @@
                 padding: 10px 0;
             }
 
+            .navbar a {
+                display: block;
+                padding: 10px;
+                font-size: 16px;
+            }
+
             .navbar.active {
                 display: flex;
             }
-        }
 
-        /* Home Section */
-        .home {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-            color: white;
-        }
-
-        .home h3 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .home h1 {
-            font-size: 50px;
-            margin: 10px 0;
-        }
-
-        /* About Box */
-        .about-box {
-            width: 60%;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-left: 5px solid #00aaff;
-            border-radius: 8px;
-            color: #ddd;
-            font-size: 18px;
-            line-height: 1.6;
-            text-align: justify;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            margin-top: 20px;
-        }
-
-        @media (max-width: 768px) {
-            .about-box {
-                width: 90%;
+            section {
+                margin-top: 100px;
             }
         }
-
-        /* Social Icons */
-        .home-sci a {
-            font-size: 28px;
-            margin: 10px;
-            color: white;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .home-sci a:hover {
-            color: #00aaff;
-        }
-
-        /* CV Button */
-        .btn-box {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 18px;
-            color: white;
-            background: #00aaff;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .btn-box:hover {
-            background: #0077cc;
-        }
     </style>
+
+    <script defer>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuIcon = document.querySelector('#menu-icon');
+            const navbar = document.querySelector('.navbar');
+            const navLinks = document.querySelectorAll('.navbar a');
+
+            menuIcon.addEventListener('click', () => {
+                navbar.classList.toggle('active');
+                menuIcon.classList.toggle('active');
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navbar.classList.remove('active');
+                    menuIcon.classList.remove('active');
+                });
+            });
+        });
+
+       document.addEventListener('DOMContentLoaded', function () {
+    particlesJS('particles-js', {
+        particles: {
+            number: { value: 80 },
+            size: { value: 3 },
+            move: { speed: 2 },
+            color: { value: "#ffffff" },
+            opacity: { value: 0.2 }, // Reduce brightness
+            line_linked: { 
+                enable: true, 
+                distance: 150, 
+                color: "#ffffff",
+                opacity: 0.15 // Reduce link brightness
+            }
+        }
+    });
+});
+    </script>
 
 </head>
 
 <body>
 
-    <!-- Particles Background -->
+    <!-- Background Animation -->
     <div id="particles-js"></div>
 
-    <!-- Header with Navbar -->
-    <header>
+    <!-- Header with Hamburger Menu -->
+    <header class="header">
         <a href="#" class="logo">Portfolio | Alen</a>
-
-        <!-- Hamburger Menu -->
-        <div class="menu-icon">
-            <i class='bx bx-menu' id="menu-btn"></i>
-        </div>
-
-        <!-- Navbar -->
-        <nav class="navbar" id="nav-menu">
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <nav class="navbar">
             <a href="index.html" class="active">Home</a>
             <a href="about.html">About</a>
             <a href="skill.html">Skills</a>
@@ -197,62 +160,59 @@
             <a href="contact.html">Contact</a>
         </nav>
     </header>
+ <!-- Home Section -->
+    <section id="home" align="center"  class="home">
+        <div class="home-content">
+            <h3>Hello, It's me</h3>
+            <h1>Alen John</h1>
+            <h3>And I'm a <span class="pro-text"></span></h3>
 
-    <!-- Home Section -->
-    <section class="home">
-        <h3>Hello, It's me</h3>
-        <h1>Alen John</h1>
-        <h3>And I'm a <span class="pro-text"></span></h3>
+            <script>
+                var typed = new Typed(".pro-text", {
+                    strings: [
+                        "SOC Analyst",
+                        "Ethical Hacker",
+                        "Security Researcher",
+                        "Incident Responder",
+                        "Web Developer"
+                    ],
+                    typeSpeed: 100,
+                    backSpeed: 100,
+                    backDelay: 1000,
+                    loop: true
+                });
+            </script>
 
-        <script>
-            var typed = new Typed(".pro-text", {
-                strings: [
-                    "SOC Analyst",
-                    "Ethical Hacker",
-                    "Security Researcher",
-                    "Incident Responder",
-                    "Web Developer"
-                ],
-                typeSpeed: 100,
-                backSpeed: 100,
-                backDelay: 1000,
-                loop: true
-            });
-        </script>
+<style>
+    .about-box {
+        background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+        padding: 20px;
+        border-left: 5px solid #00aaff; /* Left border highlight */
+        border-radius: 8px;
+        color: #ddd;
+        font-size: 18px;
+        line-height: 1.6;
+        text-align: justify;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Soft shadow */
+    }
+</style> 
 
-        <!-- About Box -->
-        <div class="about-box">
-            <p>
-                &emsp; This portfolio highlights my passion for <strong>cybersecurity</strong>, my expertise in monitoring and defending against security incidents, and my skills in ethical hacking.<br><br>
-                &emsp; I have practical experience in identifying threats, conducting security assessments, and responding to incidents that target networks, applications, and systems.<br><br>
-                &emsp; I’m constantly learning and improving my skills in SOC, penetration testing, and developing security solutions to mitigate risks and vulnerabilities.<br>
-            </p>
+<div class="about-box">
+    <p>
+        &emsp; This portfolio highlights my passion for <strong>cybersecurity</strong>, my expertise in monitoring and defending against security incidents, and my skills in ethical hacking.<br><br>
+        &emsp; I have practical experience in identifying threats, conducting security assessments, and responding to incidents that target networks, applications, and systems.<br><br>
+        &emsp; I’m constantly learning and improving my skills in SOC, penetration testing, and developing security solutions to mitigate risks and vulnerabilities.<br>
+    </p>
+</div>
+            <div align="center" class="home-sci">
+                <a href="https://github.com/alenjohn0007" target="_blank"><i class='bx bxl-github'></i></a>
+                <a href="https://www.linkedin.com/in/alenjohn9404/" target="_blank"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://wa.me/918848603693" target="_blank"><i class='bx bxl-whatsapp'></i></a>
+            </div>
+            <a  align="center"  href="Alen John_Resume.pdf" class="btn-box" target="_blank">Download CV</a>
         </div>
-
-        <!-- Social Icons -->
-        <div class="home-sci">
-            <a href="https://github.com/alenjohn0007" target="_blank"><i class='bx bxl-github'></i></a>
-            <a href="https://www.linkedin.com/in/alenjohn9404/" target="_blank"><i class='bx bxl-linkedin'></i></a>
-            <a href="https://wa.me/918848603693" target="_blank"><i class='bx bxl-whatsapp'></i></a>
-        </div>
-
-        <!-- CV Download Button -->
-        <a href="Alen John_Resume.pdf" class="btn-box" target="_blank">Download CV</a>
     </section>
 
-    <!-- JavaScript for Navbar & Particles.js -->
-    <script>
-        const menuBtn = document.getElementById("menu-btn");
-        const navMenu = document.getElementById("nav-menu");
-
-        menuBtn.addEventListener("click", function () {
-            navMenu.classList.toggle("active");
-        });
-
-        particlesJS.load('particles-js', 'particles.json', function() {
-            console.log('Particles.js loaded');
-        });
-    </script>
 
 </body>
 </html>
