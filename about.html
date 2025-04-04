@@ -12,7 +12,7 @@
     <!-- External Libraries -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-    
+
     <style>
         /* General Styling */
         body {
@@ -24,14 +24,18 @@
             overflow-x: hidden;
         }
 
-        /* Matrix Background Canvas */
-        #matrixCanvas {
+        /* Particles.js Background */
+        #particles-js {
             position: fixed;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
+            z-index: -2; /* Keep behind everything */
+            top: 0;
+            left: 0;
+        }
+
+        #particles-js canvas {
+            opacity: 0.3; /* Reduce brightness */
         }
 
         /* Navbar Styling */
@@ -116,7 +120,6 @@
 
         /* Centered Box Container */
         .container {
-
             margin: 100px auto 50px auto;
             background-color: rgba(255, 255, 255, 0.1); /* Light transparent box */
             padding: 30px;
@@ -137,7 +140,7 @@
         .about-content {
             max-width: 800px;
             padding: 20px;
-            text-align: justify;  /* Justifies text */
+            text-align: justify;
         }
 
         /* Typing Effect */
@@ -156,8 +159,8 @@
 </head>
 <body>
 
-    <!-- Matrix Effect -->
-    <canvas id="matrixCanvas"></canvas>
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
 
     <header class="header">
         <a href="index.html" class="logo">Portfolio | Alen</a>
@@ -193,25 +196,13 @@
                 <p class="fadeInPoint">
                     I’m constantly learning and evolving to stay ahead in the ever-changing cybersecurity landscape. My aim is to help organizations stay secure by identifying weaknesses and providing solutions.
                 </p>
-
-                <p class="fadeInPoint">
-                    My interest in ethical hacking started early when I became fascinated by how systems work and how vulnerabilities can be exploited. Since then, I have dedicated my time to ethical hacking, focusing on responsible security practices.
-                </p>
-
-                <p class="fadeInPoint">
-                    In my free time, I enjoy participating in Capture The Flag (CTF) challenges, experimenting with security tools, and writing about cybersecurity techniques.
-                </p>
-
-                <p class="fadeInPoint">
-                    My goal is to become a top cybersecurity professional, helping organizations secure their infrastructure. I am also working towards earning my CEH (Certified Ethical Hacker) certification.
-                </p>
-
-                <p class="fadeInPoint">
-                    I strongly believe that cybersecurity is not just about hacking—it's about making the digital world a safer place for everyone.
-                </p>
             </div>
         </div>
     </section>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
     <script>
         // Typing Animation
@@ -228,6 +219,25 @@
         function toggleMenu() {
             document.querySelector(".navbar").classList.toggle("active");
         }
+
+        // Particles.js Config
+        document.addEventListener('DOMContentLoaded', function () {
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 80 },
+                    size: { value: 3 },
+                    move: { speed: 2 },
+                    color: { value: "#ffffff" },
+                    opacity: { value: 0.2 }, // Reduced brightness
+                    line_linked: { 
+                        enable: true, 
+                        distance: 150, 
+                        color: "#ffffff",
+                        opacity: 0.15 // Reduced link brightness
+                    }
+                }
+            });
+        });
     </script>
 
 </body>
