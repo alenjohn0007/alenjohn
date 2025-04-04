@@ -12,19 +12,19 @@
     <!-- External Libraries -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-    
+
     <style>
         /* General Styling */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             height: 100%;
-            background-color: #000000;
+            background-color: #000;
             color: #fff;
             overflow-x: hidden;
         }
 
-        /* Particles Background */
+        /* Particle.js Background */
         #particles-js {
             position: fixed;
             width: 100%;
@@ -74,14 +74,6 @@
             border-radius: 5px;
         }
 
-        /* Hamburger Icon */
-        .menu-icon {
-            display: none;
-            font-size: 28px;
-            color: white;
-            cursor: pointer;
-        }
-
         /* Responsive Design */
         @media screen and (max-width: 768px) {
             .navbar {
@@ -103,6 +95,9 @@
 
             .menu-icon {
                 display: block;
+                font-size: 28px;
+                color: white;
+                cursor: pointer;
             }
 
             .navbar.active {
@@ -110,17 +105,17 @@
             }
 
             section#about {
-                margin-top: 140px; /* Adjusted for mobile navbar */
+                margin-top: 140px;
             }
         }
 
         /* Centered Box Container */
         .container {
             margin: 100px auto 50px auto;
-            background-color: rgba(255, 255, 255, 0.1); /* Light transparent box */
+            background-color: rgba(255, 255, 255, 0.1);
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.2); /* Soft glowing effect */
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
             text-align: center;
         }
 
@@ -130,13 +125,13 @@
             justify-content: center;
             align-items: center;
             padding: 40px;
-            background-color: #000000;
+            background-color: #000;
         }
 
         .about-content {
             max-width: 800px;
             padding: 20px;
-            text-align: justify;  /* Justifies text */
+            text-align: justify;
         }
 
         /* Typing Effect */
@@ -155,13 +150,12 @@
 </head>
 <body>
 
-    <!-- Particles Background -->
+    <!-- Particle.js Background -->
     <div id="particles-js"></div>
 
     <header class="header">
         <a href="index.html" class="logo">Portfolio | Alen</a>
 
-        <!-- Hamburger Icon -->
         <div class="menu-icon" onclick="toggleMenu()">☰</div>
 
         <nav class="navbar">
@@ -178,7 +172,6 @@
             <div class="about-content">
                 <h2>About Me</h2>
 
-                <!-- Typing Animation -->
                 <p class="typing"></p>
 
                 <p class="fadeInPoint">
@@ -190,11 +183,7 @@
                 </p>
 
                 <p class="fadeInPoint">
-                    I’m constantly learning and evolving to stay ahead in the ever-changing cybersecurity landscape. My aim is to help organizations stay secure by identifying weaknesses and providing solutions.
-                </p>
-
-                <p class="fadeInPoint">
-                    My interest in ethical hacking started early when I became fascinated by how systems work and how vulnerabilities can be exploited. Since then, I have dedicated my time to ethical hacking, focusing on responsible security practices.
+                    I’m constantly learning and evolving to stay ahead in the ever-changing cybersecurity landscape.
                 </p>
 
                 <p class="fadeInPoint">
@@ -202,37 +191,35 @@
                 </p>
 
                 <p class="fadeInPoint">
-                    My goal is to become a top cybersecurity professional, helping organizations secure their infrastructure. I am also working towards earning my CEH (Certified Ethical Hacker) certification.
-                </p>
-
-                <p class="fadeInPoint">
-                    I strongly believe that cybersecurity is not just about hacking—it's about making the digital world a safer place for everyone.
+                    My goal is to become a top cybersecurity professional, helping organizations secure their infrastructure.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- External Libraries -->
+    <!-- External Scripts -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 80 },
+                    size: { value: 3 },
+                    move: { speed: 2 },
+                    color: { value: "#ffffff" },
+                    opacity: { value: 0.2 }, // Reduce brightness
+                    line_linked: { 
+                        enable: true, 
+                        distance: 150, 
+                        color: "#ffffff",
+                        opacity: 0.15 // Reduce link brightness
+                    }
+                }
+            });
+        });
+    </script>
 
     <script>
-        // Initialize Particles.js
-        particlesJS("particles-js", {
-            particles: {
-                number: { value: 100, density: { enable: true, value_area: 800 } },
-                color: { value: "#00ffcc" },
-                shape: { type: "circle" },
-                opacity: { value: 0.5, random: true },
-                size: { value: 3, random: true },
-                move: { enable: true, speed: 2 }
-            },
-            interactivity: {
-                events: { onhover: { enable: true, mode: "repulse" } },
-                modes: { repulse: { distance: 100 } }
-            }
-        });
-
         // Typing Animation
         document.addEventListener("DOMContentLoaded", function () {
             var typed = new Typed(".typing", {
