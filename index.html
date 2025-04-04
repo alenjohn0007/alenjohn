@@ -23,153 +23,30 @@
             position: fixed;
             width: 100%;
             height: 100%;
-            background: #0d0d0d;
+            background: #0d0d0d; /* Dark background */
             z-index: -1;
         }
 
-        /* Centering Content */
-        .home {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .home-content {
-            max-width: 60%;
-        }
-
-        .home-content h3 {
-            font-size: 28px;
-            color: white;
-        }
-
-        .home-content h1 {
-            font-size: 48px;
-            color: cyan;
-        }
-
-        .home-content p {
-            font-size: 20px;
-            color: white;
-            text-align: justify;
+        /* Portfolio Description Box */
+        .portfolio-box {
             background: rgba(255, 255, 255, 0.1);
             padding: 20px;
             border-radius: 10px;
-        }
-
-        /* Floating Security Icons */
-        .floating-icons {
-            position: fixed;
-            right: 80px;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            z-index: 999;
-        }
-
-        .floating-icons i {
-            font-size: 28px;
-            color: cyan;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 10px;
-            border-radius: 50%;
-            transition: 0.3s;
-        }
-
-        .floating-icons i:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
-
-        /* Mobile Menu */
-        #menu-icon {
-            font-size: 30px;
-            color: white;
-            display: none;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        #menu-icon.active {
-            transform: rotate(90deg);
-        }
-
-        @media (max-width: 768px) {
-            #menu-icon {
-                display: block;
-            }
-
-            .navbar {
-                position: absolute;
-                top: 60px;
-                right: -100%;
-                background: rgba(0, 0, 0, 0.9);
-                width: 200px;
-                flex-direction: column;
-                text-align: center;
-                transition: right 0.3s ease-in-out;
-                padding: 10px;
-            }
-
-            .navbar.active {
-                right: 10px;
-            }
-
-            .navbar a {
-                display: block;
-                padding: 10px;
-                color: white;
-                text-decoration: none;
-            }
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 600px;
+            margin-top: 20px;
+            backdrop-filter: blur(10px);
         }
     </style>
-
-    <script defer>
-        document.addEventListener('DOMContentLoaded', function () {
-            particlesJS('particles-js', {
-                particles: {
-                    number: { value: 80 },
-                    size: { value: 3 },
-                    move: { speed: 2 },
-                    color: { value: "#ffffff" },
-                    opacity: { value: 0.2 },
-                    line_linked: { 
-                        enable: true, 
-                        distance: 150, 
-                        color: "#ffffff",
-                        opacity: 0.15
-                    }
-                }
-            });
-
-            // Hamburger Menu Toggle
-            let menuIcon = document.getElementById('menu-icon');
-            let navbar = document.querySelector('.navbar');
-
-            menuIcon.addEventListener('click', function () {
-                navbar.classList.toggle('active');
-                menuIcon.classList.toggle('active'); // Rotates the icon when toggled
-            });
-        });
-    </script>
 </head>
 
 <body>
-
-    <!-- Background Animation -->
     <div id="particles-js"></div>
-
-    <!-- Header (Navbar remains unchanged) -->
     <header class="header">
         <a href="#" class="logo">Portfolio | Alen</a>
         <i class='bx bx-menu' id="menu-icon"></i>
         <nav class="navbar">
-            <a href="index.html">Home</a>
+            <a href="index.html" class="active">Home</a>
             <a href="about.html">About</a>
             <a href="skill.html">Skills</a>
             <a href="projects.html">Projects</a>
@@ -177,8 +54,7 @@
         </nav>
     </header>
 
-    <!-- Home Section -->
-    <section class="home">
+    <section id="home" class="home">
         <div class="home-content">
             <h3>Hello, It's me</h3>
             <h1>Alen John</h1>
@@ -200,11 +76,13 @@
                 });
             </script>
 
-            <p> 
-                This portfolio highlights my passion for <strong>cybersecurity</strong>, my expertise in monitoring and defending against security incidents, and my skills in ethical hacking.<br><br>
-                I have practical experience in identifying threats, conducting security assessments, and responding to incidents that target networks, applications, and systems.<br><br>
-                I’m constantly learning and improving my skills in SOC, penetration testing, and developing security solutions to mitigate risks and vulnerabilities.<br>
-            </p>
+            <div class="portfolio-box">
+                <p style="text-align: justify;">
+                    &emsp; This portfolio highlights my passion for <strong>cybersecurity</strong>, my expertise in monitoring and defending against security incidents, and my skills in ethical hacking.<br><br>
+                    &emsp; I have practical experience in identifying threats, conducting security assessments, and responding to incidents that target networks, applications, and systems.<br><br>
+                    &emsp; I’m constantly learning and improving my skills in SOC, penetration testing, and developing security solutions to mitigate risks and vulnerabilities.<br>
+                </p>
+            </div>
 
             <div class="home-sci">
                 <a href="https://github.com/alenjohn0007" target="_blank"><i class='bx bxl-github'></i></a>
@@ -214,6 +92,5 @@
             <a href="Alen John_Resume.pdf" class="btn-box" target="_blank">Download CV</a>
         </div>
     </section>
-
 </body>
 </html>
