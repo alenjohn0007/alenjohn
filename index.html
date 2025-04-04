@@ -2,132 +2,226 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Alen</title>
-    
+
     <!-- Favicon & CSS -->
     <link rel="icon" type="image/png" href="sailogo.png">
     <link rel="stylesheet" href="style.css">
-    
+
     <!-- Boxicons & Typed.js -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-    
+
     <style>
+        /* Background Animation */
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            overflow-x: hidden;
-            background-color: #0e0e0e;
+            overflow: hidden;
+            background: black; /* Ensures a dark theme */
             color: white;
         }
 
-        #particles-js {
+        canvas#matrixCanvas {
             position: fixed;
-            width: 100%;
-            height: 100vh;
             top: 0;
             left: 0;
-            z-index: -1;
-        }
-        
-        .container {
-            width: 80%;
-            max-width: 1200px;
-            margin: 100px auto;
-            text-align: center;
-        }
-        
-        .home-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            animation: fadeIn 2s ease-in-out;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1; /* Ensures background effect */
         }
 
-        h1, h3 {
-            font-size: 2rem;
-            margin: 10px 0;
-        }
-        
-        .pro-text {
-            color: cyan;
-        }
-        
-        .btn-box {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: cyan;
-            color: black;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: 0.3s;
-        }
-        .btn-box:hover {
-            background-color: white;
-        }
-
-        .home-sci a {
-            font-size: 24px;
-            margin: 10px;
-            color: cyan;
-            transition: 0.3s;
-        }
-        .home-sci a:hover {
+        /* Keep your existing styles */
+        #menu-icon {
+            font-size: 28px;
             color: white;
+            cursor: pointer;
+            display: none;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        header.header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(51, 51, 51, 0.9);
+            z-index: 1000;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .navbar {
+            display: flex;
+            gap: 15px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px 15px;
+            transition: 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            #menu-icon {
+                display: block;
+            }
+
+            .navbar {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background: rgba(51, 51, 51, 0.9);
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            .navbar a {
+                display: block;
+                padding: 10px;
+                font-size: 16px;
+            }
+
+            .navbar.active {
+                display: flex;
+            }
+
+            section {
+                margin-top: 100px;
+            }
         }
     </style>
-</head>
-<body>
-    <div id="particles-js"></div>
 
+    <script defer>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuIcon = document.querySelector('#menu-icon');
+            const navbar = document.querySelector('.navbar');
+            const navLinks = document.querySelectorAll('.navbar a');
+
+            menuIcon.addEventListener('click', () => {
+                navbar.classList.toggle('active');
+                menuIcon.classList.toggle('active');
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navbar.classList.remove('active');
+                    menuIcon.classList.remove('active');
+                });
+            });
+
+            // Matrix Background Animation
+            const canvas = document.getElementById("matrixCanvas");
+            const ctx = canvas.getContext("2d");
+
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const letters = "01 SOC CYBER SECURITY HACKER".split("");
+            const fontSize = 16;
+            const columns = Math.floor(canvas.width / fontSize);
+            const drops = Array(columns).fill(0);
+
+            function drawMatrix() {
+                ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                ctx.fillStyle = "#00FF00"; 
+                ctx.font = fontSize + "px monospace";
+
+                for (let i = 0; i < drops.length; i++) {
+                    const text = letters[Math.floor(Math.random() * letters.length)];
+                    const x = i * fontSize;
+                    const y = drops[i] * fontSize;
+
+                    ctx.fillText(text, x, y);
+
+                    if (y > canvas.height && Math.random() > 0.975) {
+                        drops[i] = 0;
+                    }
+                    drops[i]++;
+                }
+            }
+
+            setInterval(drawMatrix, 50);
+
+            window.addEventListener("resize", () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                drops.fill(0);
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+
+    <canvas id="matrixCanvas"></canvas>
+
+    <!-- Header with Hamburger Menu -->
     <header class="header">
         <a href="#" class="logo">Portfolio | Alen</a>
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <nav class="navbar">
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About</a>
+            <a href="skill.html">Skills</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+        </nav>
     </header>
 
-    <section class="container">
+    <!-- Home Section -->
+    <section id="home" class="home">
         <div class="home-content">
             <h3>Hello, It's me</h3>
             <h1>Alen John</h1>
             <h3>And I'm a <span class="pro-text"></span></h3>
-            <p>Passionate about <strong>cybersecurity</strong>, threat detection, ethical hacking, and incident response.</p>
+
+            <script>
+                new Typed(".pro-text", {
+                    strings: [
+                        "SOC Analyst",
+                        "Ethical Hacker",
+                        "Security Researcher",
+                        "Incident Responder",
+                        "Web Developer"
+                    ],
+                    typeSpeed: 100,
+                    backSpeed: 100,
+                    backDelay: 1000,
+                    loop: true
+                });
+            </script>
+
+            <p style="text-align: justify;"> 
+                &emsp; &emsp;This portfolio highlights my passion for <strong>cybersecurity</strong>, my expertise in monitoring and defending against security incidents, and my skills in ethical hacking.<br><br>
+                &emsp; &emsp;I have practical experience in identifying threats, conducting security assessments, and responding to incidents that target networks, applications, and systems.<br><br>
+                &emsp; &emsp;I’m constantly learning and improving my skills in SOC, penetration testing, and developing security solutions to mitigate risks and vulnerabilities.<br>
+            </p>
+
             <div class="home-sci">
                 <a href="https://github.com/alenjohn0007" target="_blank"><i class='bx bxl-github'></i></a>
                 <a href="https://www.linkedin.com/in/alenjohn9404/" target="_blank"><i class='bx bxl-linkedin'></i></a>
                 <a href="https://wa.me/918848603693" target="_blank"><i class='bx bxl-whatsapp'></i></a>
             </div>
-            <a href="Alen_John_Resume.pdf" class="btn-box" target="_blank">Download CV</a>
+            <a href="Alen John_Resume.pdf" class="btn-box" target="_blank">Download CV</a>
         </div>
     </section>
 
-    <script>
-        // Typing animation
-        var typed = new Typed(".pro-text", {
-            strings: ["SOC Analyst", "Ethical Hacker", "Security Researcher", "Incident Responder", "Web Developer"],
-            typeSpeed: 100,
-            backSpeed: 100,
-            backDelay: 1000,
-            loop: true
-        });
-
-        // Particles.js background effect
-        particlesJS("particles-js", {
-            particles: {
-                number: { value: 80 },
-                color: { value: "#00ffff" },
-                shape: { type: "circle" },
-                opacity: { value: 0.5, random: true },
-                size: { value: 3, random: true },
-                move: { speed: 2, direction: "none", random: false }
-            }
-        });
-    </script>
 </body>
 </html>
