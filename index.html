@@ -92,6 +92,11 @@
             color: white;
             display: none;
             cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        #menu-icon.active {
+            transform: rotate(90deg);
         }
 
         @media (max-width: 768px) {
@@ -107,7 +112,7 @@
                 width: 200px;
                 flex-direction: column;
                 text-align: center;
-                transition: 0.3s;
+                transition: right 0.3s ease-in-out;
                 padding: 10px;
             }
 
@@ -148,6 +153,7 @@
 
             menuIcon.addEventListener('click', function () {
                 navbar.classList.toggle('active');
+                menuIcon.classList.toggle('active'); // Rotates the icon when toggled
             });
         });
     </script>
