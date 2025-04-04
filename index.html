@@ -2,115 +2,94 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Alen</title>
-
-    <!-- Favicon & CSS -->
-    <link rel="icon" type="image/png" href="sailogo.png">
     <link rel="stylesheet" href="style.css">
-
-    <!-- Boxicons & Typed.js -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <style>
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            background: #0d0d0d;
-            z-index: -1;
-        }
-
+        /* Home Section */
         .home {
             display: flex;
             align-items: center;
             justify-content: space-between;
             height: 100vh;
-            padding: 5% 10%;
+            padding: 0 10%;
         }
 
         .home-content {
-            flex: 1;
-            text-align: left;
-            color: white;
+            max-width: 50%;
         }
 
-        .interactive-area {
-            flex: 1;
+        .floating-icons {
+            position: relative;
+            width: 40%;
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
         }
 
-        .rotating-text {
-            font-size: 2rem;
-            color: white;
-            animation: rotate 5s linear infinite;
+        .floating-icons i {
+            position: absolute;
+            font-size: 3rem;
+            color: #ffffff;
+            opacity: 0.8;
+            animation: floatAnimation 4s infinite ease-in-out;
         }
 
-        @keyframes rotate {
-            0% { transform: rotateY(0deg); }
-            100% { transform: rotateY(360deg); }
+        @keyframes floatAnimation {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
         }
 
-        @media (max-width: 768px) {
-            .home {
-                flex-direction: column;
-                text-align: center;
-            }
-            .interactive-area {
-                margin-top: 20px;
-            }
-        }
+        .icon-1 { top: 10%; left: 10%; animation-delay: 0s; }
+        .icon-2 { top: 50%; left: 5%; animation-delay: 0.5s; }
+        .icon-3 { bottom: 20%; left: 30%; animation-delay: 1s; }
+        .icon-4 { top: 30%; right: 10%; animation-delay: 1.5s; }
+        .icon-5 { bottom: 10%; right: 20%; animation-delay: 2s; }
     </style>
 </head>
 <body>
-    <div id="particles-js"></div>
-
     <header class="header">
         <a href="#" class="logo">Portfolio | Alen</a>
         <i class='bx bx-menu' id="menu-icon"></i>
         <nav class="navbar">
-            <a href="index.html" class="active">Home</a>
-            <a href="about.html">About</a>
-            <a href="skill.html">Skills</a>
-            <a href="projects.html">Projects</a>
-            <a href="contact.html">Contact</a>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
         </nav>
     </header>
-
+    
     <section id="home" class="home">
         <div class="home-content">
             <h3>Hello, It's me</h3>
             <h1>Alen John</h1>
             <h3>And I'm a <span class="pro-text"></span></h3>
-            <script>
-                var typed = new Typed(".pro-text", {
-                    strings: ["SOC Analyst", "Ethical Hacker", "Security Researcher", "Incident Responder", "Web Developer"],
-                    typeSpeed: 100,
-                    backSpeed: 100,
-                    backDelay: 1000,
-                    loop: true
-                });
-            </script>
-            <p style="text-align: justify;"> 
-                &emsp; This portfolio highlights my passion for <strong>cybersecurity</strong>, my expertise in monitoring and defending against security incidents, and my skills in ethical hacking.<br><br>
-                &emsp; I have practical experience in identifying threats, conducting security assessments, and responding to incidents that target networks, applications, and systems.<br><br>
-                &emsp; I’m constantly learning and improving my skills in SOC, penetration testing, and developing security solutions to mitigate risks and vulnerabilities.<br>
-            </p>
-            <div class="home-sci">
-                <a href="https://github.com/alenjohn0007" target="_blank"><i class='bx bxl-github'></i></a>
-                <a href="https://www.linkedin.com/in/alenjohn9404/" target="_blank"><i class='bx bxl-linkedin'></i></a>
-                <a href="https://wa.me/918848603693" target="_blank"><i class='bx bxl-whatsapp'></i></a>
-            </div>
-            <a href="Alen John_Resume.pdf" class="btn-box" target="_blank">Download CV</a>
+            <p>This portfolio highlights my passion for cybersecurity, SOC analysis, and web development.</p>
         </div>
-        <div class="interactive-area">
-            <div class="rotating-text">Cyber Security Enthusiast</div>
+
+        <!-- Floating Security Icons -->
+        <div class="floating-icons">
+            <i class='bx bx-shield-alt-2 icon-1'></i>
+            <i class='bx bx-lock-alt icon-2'></i>
+            <i class='bx bx-bug icon-3'></i>
+            <i class='bx bx-network-chart icon-4'></i>
+            <i class='bx bx-firewall icon-5'></i>
         </div>
     </section>
+
+    <script>
+        gsap.to(".floating-icons i", {
+            y: "-20px",
+            repeat: -1,
+            yoyo: true,
+            duration: 2,
+            ease: "power1.inOut",
+            stagger: 0.5
+        });
+    </script>
 </body>
 </html>
