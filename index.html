@@ -19,18 +19,34 @@
     <script src="https://unpkg.com/three-globe"></script>
 
     <style>
-        /* Background Animation */
-        #globe-container {
-            position: fixed;
-            width: 100%;
-            height: 100%;
+        /* Main container */
+        .home {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100vh;
+            padding: 50px;
             background: #0d0d0d;
-            z-index: -1;
-            overflow: hidden;
+            color: white;
         }
 
-        /* Header */
-        header.header {
+        /* Text Content on Left */
+        .home-content {
+            flex: 1;
+            max-width: 50%;
+        }
+
+        /* 3D Globe on Right */
+        #globe-container {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Navbar */
+        .header {
             position: fixed;
             width: 100%;
             top: 0;
@@ -44,7 +60,7 @@
             backdrop-filter: blur(5px);
         }
 
-        /* Navbar */
+        /* Navbar Links */
         .navbar {
             display: flex;
             gap: 15px;
@@ -63,37 +79,27 @@
             border-radius: 5px;
         }
 
-        /* Mobile Menu */
-        @media (max-width: 768px) {
-            .navbar {
-                display: none;
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .home {
                 flex-direction: column;
-                position: absolute;
-                top: 60px;
-                right: 0;
-                background: rgba(51, 51, 51, 0.9);
-                width: 100%;
                 text-align: center;
-                padding: 10px 0;
+                padding: 30px;
             }
 
-            .navbar a {
-                display: block;
-                padding: 10px;
-                font-size: 16px;
+            .home-content, #globe-container {
+                width: 100%;
+                max-width: 100%;
             }
 
-            .navbar.active {
-                display: flex;
+            #globe-container {
+                height: 400px;
             }
         }
     </style>
 </head>
 
 <body>
-
-    <!-- Background Animation -->
-    <div id="globe-container"></div>
 
     <!-- Header -->
     <header class="header">
@@ -109,6 +115,7 @@
 
     <!-- Home Section -->
     <section id="home" class="home">
+        <!-- Left Side: Text -->
         <div class="home-content">
             <h3>Hello, It's me</h3>
             <h1>Alen John</h1>
@@ -143,6 +150,9 @@
             </div>
             <a href="Alen John_Resume.pdf" class="btn-box" target="_blank">Download CV</a>
         </div>
+
+        <!-- Right Side: Globe -->
+        <div id="globe-container"></div>
     </section>
 
     <!-- JavaScript for 3D Rotating Globe -->
@@ -152,10 +162,11 @@
 
             // Scene setup
             const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
             const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 
-            renderer.setSize(window.innerWidth, window.innerHeight);
+            // Set size to match the container
+            renderer.setSize(container.clientWidth, container.clientHeight);
             container.appendChild(renderer.domElement);
 
             // Globe object
@@ -172,7 +183,7 @@
             globeObject.add(globe);
             scene.add(globeObject);
 
-            camera.position.z = 4;
+            camera.position.z = 3;
 
             // Animation
             function animate() {
@@ -182,10 +193,10 @@
             }
             animate();
 
-            // Window Resize
+            // Handle Resize
             window.addEventListener("resize", () => {
-                renderer.setSize(window.innerWidth, window.innerHeight);
-                camera.aspect = window.innerWidth / window.innerHeight;
+                renderer.setSize(container.clientWidth, container.clientHeight);
+                camera.aspect = container.clientWidth / container.clientHeight;
                 camera.updateProjectionMatrix();
             });
         });
