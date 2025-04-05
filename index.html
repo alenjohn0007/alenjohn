@@ -14,7 +14,7 @@
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
 
-    <!-- Particles.js -->
+    <!-- Particles.js for background animation -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
     <style>
@@ -23,11 +23,19 @@
             position: fixed;
             width: 100%;
             height: 100%;
-            background: #0d0d0d;
+            background: #0d0d0d; /* Dark background */
             z-index: -1;
         }
 
-        /* Header Styles */
+        /* Hamburger Icon */
+        #menu-icon {
+            display: none;
+            font-size: 28px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Header */
         header.header {
             position: fixed;
             width: 100%;
@@ -40,13 +48,6 @@
             justify-content: space-between;
             align-items: center;
             backdrop-filter: blur(5px);
-        }
-
-        .logo {
-            color: white;
-            font-size: 20px;
-            font-weight: bold;
-            text-decoration: none;
         }
 
         /* Navbar */
@@ -68,75 +69,7 @@
             border-radius: 5px;
         }
 
-        /* Hamburger Icon */
-        #menu-icon {
-            display: none;
-            font-size: 28px;
-            color: white;
-            cursor: pointer;
-        }
-
-        /* Home Section */
-        .home {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            min-height: 100vh;
-            padding: 100px 20px 40px;
-            text-align: center;
-            color: white;
-            position: relative;
-            z-index: 1;
-        }
-
-        .home-content h1,
-        .home-content h3 {
-            margin: 10px 0;
-        }
-
-        .home-sci a {
-            color: white;
-            font-size: 24px;
-            margin: 0 10px;
-            transition: 0.3s;
-        }
-
-        .home-sci a:hover {
-            color: #00aaff;
-        }
-
-        .btn-box {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 25px;
-            background: #00aaff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: 0.3s;
-        }
-
-        .btn-box:hover {
-            background: #008fcc;
-        }
-
-        /* About Box */
-        .about-box {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-left: 5px solid #00aaff;
-            border-radius: 8px;
-            color: #ddd;
-            font-size: 18px;
-            line-height: 1.6;
-            text-align: justify;
-            max-width: 800px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            margin-top: 30px;
-        }
-
-        /* Responsive Styles */
+        /* Mobile Menu */
         @media (max-width: 768px) {
             #menu-icon {
                 display: block;
@@ -154,27 +87,23 @@
                 padding: 10px 0;
             }
 
+            .navbar a {
+                display: block;
+                padding: 10px;
+                font-size: 16px;
+            }
+
             .navbar.active {
                 display: flex;
             }
 
-            .home-content h1 {
-                font-size: 28px;
-            }
-
-            .home-content h3 {
-                font-size: 20px;
-            }
-
-            .btn-box {
-                font-size: 16px;
-                padding: 10px 20px;
+            section {
+                margin-top: 100px;
             }
         }
     </style>
 
     <script defer>
-        // Navbar Toggle
         document.addEventListener('DOMContentLoaded', function () {
             const menuIcon = document.querySelector('#menu-icon');
             const navbar = document.querySelector('.navbar');
@@ -193,33 +122,33 @@
             });
         });
 
-        // Particles.js Background
-        document.addEventListener('DOMContentLoaded', function () {
-            particlesJS('particles-js', {
-                particles: {
-                    number: { value: 80 },
-                    size: { value: 3 },
-                    move: { speed: 2 },
-                    color: { value: "#ffffff" },
-                    opacity: { value: 0.2 },
-                    line_linked: {
-                        enable: true,
-                        distance: 150,
-                        color: "#ffffff",
-                        opacity: 0.15
-                    }
-                }
-            });
-        });
+       document.addEventListener('DOMContentLoaded', function () {
+    particlesJS('particles-js', {
+        particles: {
+            number: { value: 80 },
+            size: { value: 3 },
+            move: { speed: 2 },
+            color: { value: "#ffffff" },
+            opacity: { value: 0.2 }, // Reduce brightness
+            line_linked: { 
+                enable: true, 
+                distance: 150, 
+                color: "#ffffff",
+                opacity: 0.15 // Reduce link brightness
+            }
+        }
+    });
+});
     </script>
 
 </head>
+
 <body>
 
-    <!-- Particle Background -->
+    <!-- Background Animation -->
     <div id="particles-js"></div>
 
-    <!-- Header -->
+    <!-- Header with Hamburger Menu -->
     <header class="header">
         <a href="#" class="logo">Portfolio | Alen</a>
         <i class='bx bx-menu' id="menu-icon"></i>
@@ -231,48 +160,60 @@
             <a href="contact.html">Contact</a>
         </nav>
     </header>
-
-    <!-- Home Section -->
-    <section id="home" class="home">
+ <!-- Home Section -->
+    <section id="home" align="center"  class="home">
         <div class="home-content">
             <h3>Hello, It's me</h3>
             <h1>Alen John</h1>
             <h3>And I'm a <span class="pro-text"></span></h3>
 
-            <div class="about-box">
-                <p>
-                    &emsp; This portfolio highlights my passion for <strong>cybersecurity</strong>, my expertise in monitoring and defending against security incidents, and my skills in ethical hacking.<br><br>
-                    &emsp; I have practical experience in identifying threats, conducting security assessments, and responding to incidents that target networks, applications, and systems.<br><br>
-                    &emsp; I’m constantly learning and improving my skills in SOC, penetration testing, and developing security solutions to mitigate risks and vulnerabilities.<br>
-                </p>
-            </div>
+            <script>
+                var typed = new Typed(".pro-text", {
+                    strings: [
+                        "SOC Analyst",
+                        "Ethical Hacker",
+                        "Security Researcher",
+                        "Incident Responder",
+                        "Web Developer"
+                    ],
+                    typeSpeed: 100,
+                    backSpeed: 100,
+                    backDelay: 1000,
+                    loop: true
+                });
+            </script>
 
-            <div class="home-sci">
+<style>
+    .about-box {
+       background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+        padding: 20px;
+        border-left: 5px solid #00aaff; /* Left border highlight */
+        border-radius: 8px;
+        color: #ddd;
+        font-size: 18px;
+        line-height: 1.6;
+        text-align: justify;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Soft shadow */
+    }
+</style>
+
+<div class="about-box">
+    <p>
+        &emsp; This portfolio highlights my passion for <strong>cybersecurity</strong>, my expertise in monitoring and defending against security incidents, and my skills in ethical hacking.<br><br>
+        &emsp; I have practical experience in identifying threats, conducting security assessments, and responding to incidents that target networks, applications, and systems.<br><br>
+        &emsp; I’m constantly learning and improving my skills in SOC, penetration testing, and developing security solutions to mitigate risks and vulnerabilities.<br>
+    </p>
+</div>
+
+            <div align="center" class="home-sci">
                 <a href="https://github.com/alenjohn0007" target="_blank"><i class='bx bxl-github'></i></a>
                 <a href="https://www.linkedin.com/in/alenjohn9404/" target="_blank"><i class='bx bxl-linkedin'></i></a>
                 <a href="https://wa.me/918848603693" target="_blank"><i class='bx bxl-whatsapp'></i></a>
             </div>
-
-            <a href="Alen John_Resume.pdf" class="btn-box" target="_blank">Download CV</a>
+            <a  align="center"  href="Alen John_Resume.pdf" class="btn-box" target="_blank">Download CV</a>
         </div>
     </section>
 
-    <!-- Typed.js -->
-    <script>
-        var typed = new Typed(".pro-text", {
-            strings: [
-                "SOC Analyst",
-                "Ethical Hacker",
-                "Security Researcher",
-                "Incident Responder",
-                "Web Developer"
-            ],
-            typeSpeed: 100,
-            backSpeed: 100,
-            backDelay: 1000,
-            loop: true
-        });
-    </script>
 
 </body>
 </html>
