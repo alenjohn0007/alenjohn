@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio | Alen</title>
 
   <!-- Favicon & CSS -->
-  <link rel="icon" type="image/png" href="sailogo.png" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="sailogo.png">
+  <link rel="stylesheet" href="style.css">
 
   <!-- Boxicons & Typed.js -->
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
   <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
 
   <!-- Particles.js for background animation -->
@@ -25,14 +25,6 @@
       height: 100%;
       background: #0d0d0d;
       z-index: -1;
-    }
-
-    /* Hamburger Icon */
-    #menu-icon {
-      display: none;
-      font-size: 28px;
-      color: white;
-      cursor: pointer;
     }
 
     /* Header */
@@ -50,7 +42,13 @@
       backdrop-filter: blur(5px);
     }
 
-    /* Navbar */
+    #menu-icon {
+      display: none;
+      font-size: 28px;
+      color: white;
+      cursor: pointer;
+    }
+
     .navbar {
       display: flex;
       gap: 15px;
@@ -69,7 +67,6 @@
       border-radius: 5px;
     }
 
-    /* Mobile Menu */
     @media (max-width: 768px) {
       #menu-icon {
         display: block;
@@ -102,7 +99,19 @@
       }
     }
 
-    /* About Box Style */
+    /* Home Section Fix */
+    .home {
+      padding-top: 160px;
+      text-align: center;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .home {
+        padding-top: 200px;
+      }
+    }
+
     .about-box {
       background: rgba(255, 255, 255, 0.1);
       padding: 20px;
@@ -113,71 +122,51 @@
       line-height: 1.6;
       text-align: justify;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      margin: 20px auto;
       max-width: 800px;
-      margin: auto;
-    }
-
-    .home-sci {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
     }
 
     .home-sci a {
+      margin: 10px;
       color: white;
       font-size: 24px;
-      transition: 0.3s;
-    }
-
-    .home-sci a:hover {
-      color: #00aaff;
     }
 
     .btn-box {
       display: inline-block;
       margin-top: 20px;
       padding: 10px 20px;
-      background: #00aaff;
+      background-color: #00aaff;
       color: white;
       text-decoration: none;
       border-radius: 5px;
-      font-weight: bold;
       transition: background 0.3s;
     }
 
     .btn-box:hover {
-      background: #0088cc;
-    }
-
-    /* Ensure spacing from fixed header */
-    .home {
-      padding-top: 120px;
-      padding-bottom: 60px;
-      text-align: center;
-      color: white;
+      background-color: #008ecc;
     }
   </style>
 
   <script defer>
-    document.addEventListener("DOMContentLoaded", function () {
-      const menuIcon = document.querySelector("#menu-icon");
-      const navbar = document.querySelector(".navbar");
-      const navLinks = document.querySelectorAll(".navbar a");
+    document.addEventListener('DOMContentLoaded', function () {
+      const menuIcon = document.querySelector('#menu-icon');
+      const navbar = document.querySelector('.navbar');
+      const navLinks = document.querySelectorAll('.navbar a');
 
-      menuIcon.addEventListener("click", () => {
-        navbar.classList.toggle("active");
-        menuIcon.classList.toggle("active");
+      menuIcon.addEventListener('click', () => {
+        navbar.classList.toggle('active');
+        menuIcon.classList.toggle('active');
       });
 
-      navLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-          navbar.classList.remove("active");
-          menuIcon.classList.remove("active");
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          navbar.classList.remove('active');
+          menuIcon.classList.remove('active');
         });
       });
 
-      particlesJS("particles-js", {
+      particlesJS('particles-js', {
         particles: {
           number: { value: 80 },
           size: { value: 3 },
@@ -188,9 +177,9 @@
             enable: true,
             distance: 150,
             color: "#ffffff",
-            opacity: 0.15,
-          },
-        },
+            opacity: 0.15
+          }
+        }
       });
 
       new Typed(".pro-text", {
@@ -199,25 +188,26 @@
           "Ethical Hacker",
           "Security Researcher",
           "Incident Responder",
-          "Web Developer",
+          "Web Developer"
         ],
         typeSpeed: 100,
         backSpeed: 100,
         backDelay: 1000,
-        loop: true,
+        loop: true
       });
     });
   </script>
 </head>
 
 <body>
+
   <!-- Background Animation -->
   <div id="particles-js"></div>
 
   <!-- Header -->
   <header class="header">
     <a href="#" class="logo">Portfolio | Alen</a>
-    <i class="bx bx-menu" id="menu-icon"></i>
+    <i class='bx bx-menu' id="menu-icon"></i>
     <nav class="navbar">
       <a href="index.html" class="active">Home</a>
       <a href="about.html">About</a>
@@ -228,27 +218,29 @@
   </header>
 
   <!-- Home Section -->
-  <section id="home" class="home">
+  <section class="home" id="home">
     <div class="home-content">
+      <h3>Hello, It's me</h3>
+      <h1>Alen John</h1>
+      <h3>And I'm a <span class="pro-text"></span></h3>
+
       <div class="about-box">
-        <h3>Hello, It's me</h3>
-        <h1>Alen John</h1>
-        <h3>And I'm a <span class="pro-text"></span></h3>
         <p>
-          &emsp; This portfolio highlights my passion for <strong>cybersecurity</strong>, my expertise in monitoring and defending against security incidents, and my skills in ethical hacking.<br /><br />
-          &emsp; I have practical experience in identifying threats, conducting security assessments, and responding to incidents that target networks, applications, and systems.<br /><br />
+          &emsp; This portfolio highlights my passion for <strong>cybersecurity</strong>, my expertise in monitoring and defending against security incidents, and my skills in ethical hacking.<br><br>
+          &emsp; I have practical experience in identifying threats, conducting security assessments, and responding to incidents that target networks, applications, and systems.<br><br>
           &emsp; I’m constantly learning and improving my skills in SOC, penetration testing, and developing security solutions to mitigate risks and vulnerabilities.
         </p>
       </div>
 
       <div class="home-sci">
-        <a href="https://github.com/alenjohn0007" target="_blank"><i class="bx bxl-github"></i></a>
-        <a href="https://www.linkedin.com/in/alenjohn9404/" target="_blank"><i class="bx bxl-linkedin"></i></a>
-        <a href="https://wa.me/918848603693" target="_blank"><i class="bx bxl-whatsapp"></i></a>
+        <a href="https://github.com/alenjohn0007" target="_blank"><i class='bx bxl-github'></i></a>
+        <a href="https://www.linkedin.com/in/alenjohn9404/" target="_blank"><i class='bx bxl-linkedin'></i></a>
+        <a href="https://wa.me/918848603693" target="_blank"><i class='bx bxl-whatsapp'></i></a>
       </div>
 
       <a href="Alen John_Resume.pdf" class="btn-box" target="_blank">Download CV</a>
     </div>
   </section>
+
 </body>
 </html>
