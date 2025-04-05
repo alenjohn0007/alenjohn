@@ -1,255 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Alen</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Alen</title>
 
-    <!-- Favicon & CSS -->
-    <link rel="icon" type="image/png" href="sailogo.png">
-    <link rel="stylesheet" href="style.css">
+  <!-- Favicon & CSS -->
+  <link rel="icon" type="image/png" href="sailogo.png">
+  <link rel="stylesheet" href="style.css">
 
-    <!-- Boxicons & Typed.js -->
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+  <!-- Boxicons & Typed.js -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
 
-    <!-- Particles.js for background animation -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <!-- Particles.js for background animation -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
-    <style>
-        /* Background Animation */
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            background: #0d0d0d;
-            z-index: -1;
-        }
+  <style>
+    /* Background Animation */
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: #0d0d0d;
+      z-index: -1;
+    }
 
-        /* Hamburger Icon */
-        #menu-icon {
-            display: none;
-            font-size: 28px;
-            color: white;
-            cursor: pointer;
-        }
+    /* Header */
+    header.header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background-color: rgba(51, 51, 51, 0.9);
+      z-index: 1000;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(5px);
+    }
 
-        /* Header */
-        header.header {
-            position: fixed;
-            width: 100%;
-            height: 60px;
-            top: 0;
-            left: 0;
-            background-color: rgba(51, 51, 51, 0.9);
-            z-index: 1000;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            backdrop-filter: blur(5px);
-        }
+    #menu-icon {
+      display: none;
+      font-size: 28px;
+      color: white;
+      cursor: pointer;
+    }
 
-        /* Navbar */
-        .navbar {
-            display: flex;
-            gap: 15px;
-        }
+    .navbar {
+      display: flex;
+      gap: 15px;
+    }
 
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
-            padding: 10px 15px;
-            transition: 0.3s;
-        }
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 10px 15px;
+      transition: 0.3s;
+    }
 
-        .navbar a:hover {
-            background-color: #575757;
-            border-radius: 5px;
-        }
+    .navbar a:hover {
+      background-color: #575757;
+      border-radius: 5px;
+    }
 
-        /* Mobile Menu */
-        @media (max-width: 768px) {
-            #menu-icon {
-                display: block;
-            }
+    @media (max-width: 768px) {
+      #menu-icon {
+        display: block;
+      }
 
-            .navbar {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                right: 0;
-                background: rgba(51, 51, 51, 0.9);
-                width: 100%;
-                text-align: center;
-                padding: 10px 0;
-            }
+      .navbar {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: rgba(51, 51, 51, 0.9);
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+      }
 
-            .navbar a {
-                display: block;
-                padding: 10px;
-                font-size: 16px;
-            }
+      .navbar a {
+        display: block;
+        padding: 10px;
+        font-size: 16px;
+      }
 
-            .navbar.active {
-                display: flex;
-            }
-        }
+      .navbar.active {
+        display: flex;
+      }
 
-        /* Home Section */
-        .home {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding-top: 120px; /* Adjusted for fixed header */
-            padding-left: 20px;
-            padding-right: 20px;
-            text-align: center;
-            color: white;
-            box-sizing: border-box;
-        }
+      section {
+        margin-top: 100px;
+      }
+    }
 
-        /* About Box */
-        .about-box {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-left: 5px solid #00aaff;
-            border-radius: 8px;
-            color: #ddd;
-            font-size: 18px;
-            line-height: 1.6;
-            text-align: justify;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            margin-top: 30px;
-            max-width: 800px;
-        }
+    /* Home Section Fix */
+    .home {
+      padding-top: 160px;
+      text-align: center;
+      color: white;
+    }
 
-        .home-sci a {
-            color: white;
-            font-size: 24px;
-            margin: 10px;
-            transition: 0.3s;
-        }
+    @media (max-width: 768px) {
+      .home {
+        padding-top: 200px;
+      }
+    }
 
-        .home-sci a:hover {
-            color: #00aaff;
-        }
+    .about-box {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-left: 5px solid #00aaff;
+      border-radius: 8px;
+      color: #ddd;
+      font-size: 18px;
+      line-height: 1.6;
+      text-align: justify;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      margin: 20px auto;
+      max-width: 800px;
+    }
 
-        .btn-box {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background: #00aaff;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
+    .home-sci a {
+      margin: 10px;
+      color: white;
+      font-size: 24px;
+    }
 
-        .btn-box:hover {
-            background: #008ecc;
-        }
-    </style>
+    .btn-box {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #00aaff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
 
-    <script defer>
-        document.addEventListener('DOMContentLoaded', function () {
-            const menuIcon = document.querySelector('#menu-icon');
-            const navbar = document.querySelector('.navbar');
-            const navLinks = document.querySelectorAll('.navbar a');
+    .btn-box:hover {
+      background-color: #008ecc;
+    }
+  </style>
 
-            menuIcon.addEventListener('click', () => {
-                navbar.classList.toggle('active');
-                menuIcon.classList.toggle('active');
-            });
+  <script defer>
+    document.addEventListener('DOMContentLoaded', function () {
+      const menuIcon = document.querySelector('#menu-icon');
+      const navbar = document.querySelector('.navbar');
+      const navLinks = document.querySelectorAll('.navbar a');
 
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    navbar.classList.remove('active');
-                    menuIcon.classList.remove('active');
-                });
-            });
+      menuIcon.addEventListener('click', () => {
+        navbar.classList.toggle('active');
+        menuIcon.classList.toggle('active');
+      });
 
-            particlesJS('particles-js', {
-                particles: {
-                    number: { value: 80 },
-                    size: { value: 3 },
-                    move: { speed: 2 },
-                    color: { value: "#ffffff" },
-                    opacity: { value: 0.2 },
-                    line_linked: {
-                        enable: true,
-                        distance: 150,
-                        color: "#ffffff",
-                        opacity: 0.15
-                    }
-                }
-            });
-
-            new Typed(".pro-text", {
-                strings: [
-                    "SOC Analyst",
-                    "Ethical Hacker",
-                    "Security Researcher",
-                    "Incident Responder",
-                    "Web Developer"
-                ],
-                typeSpeed: 100,
-                backSpeed: 100,
-                backDelay: 1000,
-                loop: true
-            });
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          navbar.classList.remove('active');
+          menuIcon.classList.remove('active');
         });
-    </script>
+      });
 
+      particlesJS('particles-js', {
+        particles: {
+          number: { value: 80 },
+          size: { value: 3 },
+          move: { speed: 2 },
+          color: { value: "#ffffff" },
+          opacity: { value: 0.2 },
+          line_linked: {
+            enable: true,
+            distance: 150,
+            color: "#ffffff",
+            opacity: 0.15
+          }
+        }
+      });
+
+      new Typed(".pro-text", {
+        strings: [
+          "SOC Analyst",
+          "Ethical Hacker",
+          "Security Researcher",
+          "Incident Responder",
+          "Web Developer"
+        ],
+        typeSpeed: 100,
+        backSpeed: 100,
+        backDelay: 1000,
+        loop: true
+      });
+    });
+  </script>
 </head>
+
 <body>
 
-    <!-- Background Animation -->
-    <div id="particles-js"></div>
+  <!-- Background Animation -->
+  <div id="particles-js"></div>
 
-    <!-- Header -->
-    <header class="header">
-        <a href="#" class="logo">Portfolio | Alen</a>
-        <i class='bx bx-menu' id="menu-icon"></i>
-        <nav class="navbar">
-            <a href="index.html" class="active">Home</a>
-            <a href="about.html">About</a>
-            <a href="skill.html">Skills</a>
-            <a href="projects.html">Projects</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
+  <!-- Header -->
+  <header class="header">
+    <a href="#" class="logo">Portfolio | Alen</a>
+    <i class='bx bx-menu' id="menu-icon"></i>
+    <nav class="navbar">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="skill.html">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-    <!-- Home Section -->
-    <section id="home" class="home">
-        <div class="home-content">
-            <h3>Hello, It's me</h3>
-            <h1>Alen John</h1>
-            <h3>And I'm a <span class="pro-text"></span></h3>
+  <!-- Home Section -->
+  <section class="home" id="home">
+    <div class="home-content">
+      <h3>Hello, It's me</h3>
+      <h1>Alen John</h1>
+      <h3>And I'm a <span class="pro-text"></span></h3>
 
-            <div class="about-box">
-                <p>
-                    &emsp; This portfolio highlights my passion for <strong>cybersecurity</strong>, my expertise in monitoring and defending against security incidents, and my skills in ethical hacking.<br><br>
-                    &emsp; I have practical experience in identifying threats, conducting security assessments, and responding to incidents that target networks, applications, and systems.<br><br>
-                    &emsp; I’m constantly learning and improving my skills in SOC, penetration testing, and developing security solutions to mitigate risks and vulnerabilities.<br>
-                </p>
-            </div>
+      <div class="about-box">
+        <p>
+          &emsp; This portfolio highlights my passion for <strong>cybersecurity</strong>, my expertise in monitoring and defending against security incidents, and my skills in ethical hacking.<br><br>
+          &emsp; I have practical experience in identifying threats, conducting security assessments, and responding to incidents that target networks, applications, and systems.<br><br>
+          &emsp; I’m constantly learning and improving my skills in SOC, penetration testing, and developing security solutions to mitigate risks and vulnerabilities.
+        </p>
+      </div>
 
-            <div class="home-sci">
-                <a href="https://github.com/alenjohn0007" target="_blank"><i class='bx bxl-github'></i></a>
-                <a href="https://www.linkedin.com/in/alenjohn9404/" target="_blank"><i class='bx bxl-linkedin'></i></a>
-                <a href="https://wa.me/918848603693" target="_blank"><i class='bx bxl-whatsapp'></i></a>
-            </div>
+      <div class="home-sci">
+        <a href="https://github.com/alenjohn0007" target="_blank"><i class='bx bxl-github'></i></a>
+        <a href="https://www.linkedin.com/in/alenjohn9404/" target="_blank"><i class='bx bxl-linkedin'></i></a>
+        <a href="https://wa.me/918848603693" target="_blank"><i class='bx bxl-whatsapp'></i></a>
+      </div>
 
-            <a href="Alen John_Resume.pdf" class="btn-box" target="_blank">Download CV</a>
-        </div>
-    </section>
+      <a href="Alen John_Resume.pdf" class="btn-box" target="_blank">Download CV</a>
+    </div>
+  </section>
 
 </body>
 </html>
