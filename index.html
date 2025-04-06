@@ -146,25 +146,6 @@
     .btn-box:hover {
       background-color: #008ecc;
     }
-
-    /* Fixed "I'm a ..." text */
-    .fixed-title {
-      position: fixed;
-      top: 140px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 999;
-      color: white;
-      font-size: 22px;
-      text-align: center;
-    }
-
-    @media (max-width: 768px) {
-      .fixed-title {
-        top: 180px;
-        font-size: 18px;
-      }
-    }
   </style>
 
   <script defer>
@@ -236,17 +217,29 @@
     </nav>
   </header>
 
-  <!-- Fixed "I'm a ..." -->
-  <div class="fixed-title">
-    <h3>And I'm a <span class="pro-text"></span></h3>
-  </div>
-
   <!-- Home Section -->
   <section class="home" id="home">
     <div class="home-content">
       <h3>Hello, It's me</h3>
       <h1>Alen John</h1>
-      <!-- Removed the original "I'm a ..." line here -->
+                  <h3>And I'm a <span class="pro-text">
+                <script>
+                   var typed = new Typed(".pro-text", {
+                      strings: [
+                        "Ethical Hacker",
+                        "Frontend Developer",
+                        "Programmer",
+                        "Linux Administrator",
+                        "Photo Editor",
+                        "Blockchain Developer"
+                      ],
+                      typeSpeed: 100,   
+                      backSpeed: 100,   
+                      backDelay: 1000,  
+                      loop: true        
+                    });
+                </script>
+            </span></h3>
 
       <div class="about-box">
         <p>
