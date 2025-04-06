@@ -146,6 +146,29 @@
     .btn-box:hover {
       background-color: #008ecc;
     }
+
+    /* Prevent Typed.js text from breaking */
+    .pro-text {
+      white-space: nowrap;
+      display: inline-block;
+      max-width: 100%;
+      font-weight: bold;
+      color: #00aaff;
+    }
+
+    @media (max-width: 600px) {
+      .pro-text {
+        font-size: 18px;
+      }
+
+      .home h3 {
+        font-size: 18px;
+      }
+
+      .home h1 {
+        font-size: 26px;
+      }
+    }
   </style>
 
   <script defer>
@@ -182,22 +205,22 @@
         }
       });
 
-new Typed(".pro-text", {
-  strings: [
-    "SOC Analyst",
-    "Ethical Hacker",
-    "MCA Graduate",
-    "Blue Teamer",
-    "Bug Hunter",
-    "Web Developer",
-    "Cyber Sleuth",
-    "Net Defender"
-  ],
-  typeSpeed: 100,
-  backSpeed: 100,
-  backDelay: 1000,
-  loop: true
-});
+      new Typed(".pro-text", {
+        strings: [
+          "SOC Analyst",
+          "Ethical Hacker",
+          "MCA Graduate",
+          "Blue Teamer",
+          "Bug Hunter",
+          "Web Developer",
+          "Cyber Sleuth",
+          "Net Defender"
+        ],
+        typeSpeed: 100,
+        backSpeed: 100,
+        backDelay: 1000,
+        loop: true
+      });
     });
   </script>
 </head>
