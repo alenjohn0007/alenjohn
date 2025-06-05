@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Projects | Alen</title>
 
     <!-- Favicon & External CSS -->
-    <link rel="icon" type="image/png" href="sailogo.png">
-    <link rel="stylesheet" href="style.css">
-    
+    <link rel="icon" type="image/png" href="sailogo.png" />
+    <link rel="stylesheet" href="style.css" />
+
     <!-- Boxicons for icons -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
 
     <style>
         body {
@@ -24,8 +24,12 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
         /* Navbar Styling */
@@ -42,14 +46,17 @@
             justify-content: space-between;
             align-items: center;
         }
+
         .logo {
             color: #fff;
             text-decoration: none;
             font-size: 24px;
         }
+
         .navbar {
             display: flex;
         }
+
         .navbar a {
             color: #fff;
             padding: 10px 20px;
@@ -58,6 +65,7 @@
             font-size: 16px;
             transition: 0.3s;
         }
+
         .navbar a:hover {
             background-color: #3a3a3a;
             border-radius: 5px;
@@ -100,6 +108,7 @@
             margin-top: 80px;
             padding: 50px 20px;
         }
+
         h2 {
             font-size: 36px;
             margin-bottom: 20px;
@@ -116,10 +125,16 @@
             border-radius: 10px;
             border: 2px solid #00ff00;
         }
+
         .carousel-track {
             display: flex;
             transition: transform 0.5s ease-in-out;
+            will-change: transform;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            transform-style: preserve-3d;
         }
+
         .carousel-item {
             min-width: 100%;
             padding: 30px;
@@ -127,12 +142,14 @@
             border-radius: 10px;
             transition: 0.5s;
         }
+
         .project-title {
             font-size: 22px;
             font-weight: bold;
             margin-bottom: 10px;
             color: #00ff00;
         }
+
         .project-description {
             font-size: 16px;
             color: #ddd;
@@ -142,6 +159,7 @@
         .carousel-buttons {
             margin-top: 15px;
         }
+
         .carousel-button {
             padding: 10px 20px;
             margin: 5px;
@@ -153,6 +171,7 @@
             cursor: pointer;
             transition: 0.3s;
         }
+
         .carousel-button:hover {
             background: #009900;
         }
@@ -177,19 +196,27 @@
             <div class="carousel-track">
                 <div class="carousel-item">
                     <div class="project-title">SOC Project - Website Log Monitoring Using Splunk</div>
-                    <div class="project-description">Deploying WordPress on Ubuntu and monitoring its logs using Splunk for real-time security analysis.</div>
+                    <div class="project-description">
+                        Deploying WordPress on Ubuntu and monitoring its logs using Splunk for real-time security analysis.
+                    </div>
                 </div>
                 <div class="carousel-item">
                     <div class="project-title">MCA Project - Anganwadi Management System</div>
-                    <div class="project-description">A web-based system to manage Anganwadi centers, including child registration, staff scheduling, and vaccination tracking.</div>
+                    <div class="project-description">
+                        A web-based system to manage Anganwadi centers, including child registration, staff scheduling, and vaccination tracking.
+                    </div>
                 </div>
-                 <div class="carousel-item">
+                <div class="carousel-item">
                     <div class="project-title">BCA Project - Latex Sales And Service System</div>
-                    <div class="project-description">A web application for managing latex product sales and service tracking for customers.</div>
+                    <div class="project-description">
+                        A web application for managing latex product sales and service tracking for customers.
+                    </div>
                 </div>
                 <div class="carousel-item">
                     <div class="project-title">Wazuh Windows 11 Monitoring</div>
-                    <div class="project-description">Monitoring Windows 11 endpoints using Wazuh SIEM for log analysis, intrusion detection, and compliance auditing.</div>
+                    <div class="project-description">
+                        Monitoring Windows 11 endpoints using Wazuh SIEM for log analysis, intrusion detection, and compliance auditing.
+                    </div>
                 </div>
             </div>
         </div>
@@ -200,32 +227,31 @@
         </div>
     </section>
 
-<script>
-    let index = 0;
-    const track = document.querySelector('.carousel-track');
-    const slides = document.querySelectorAll('.carousel-item');
-    const totalSlides = slides.length;
+    <script>
+        let index = 0;
+        const track = document.querySelector('.carousel-track');
+        const slides = document.querySelectorAll('.carousel-item');
+        const totalSlides = slides.length;
 
-    function updateSlide() {
-        track.style.transform = `translateX(-${index * 100}%)`;
-    }
+        function updateSlide() {
+            track.style.transform = `translateX(-${index * 100}%)`;
+        }
 
-    function nextSlide() {
-        index = (index + 1) % totalSlides;
-        updateSlide();
-    }
+        function nextSlide() {
+            index = (index + 1) % totalSlides;
+            updateSlide();
+        }
 
-    function prevSlide() {
-        index = (index - 1 + totalSlides) % totalSlides;
-        updateSlide();
-    }
+        function prevSlide() {
+            index = (index - 1 + totalSlides) % totalSlides;
+            updateSlide();
+        }
 
-    setInterval(nextSlide, 4000); // Auto-slide every 4 seconds
+        setInterval(nextSlide, 4000); // Auto-slide every 4 seconds
 
-    function toggleMenu() {
-        document.querySelector('.navbar').classList.toggle('active');
-    }
-</script>
-
+        function toggleMenu() {
+            document.querySelector('.navbar').classList.toggle('active');
+        }
+    </script>
 </body>
-</html> 
+</html>
