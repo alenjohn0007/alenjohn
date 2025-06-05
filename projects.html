@@ -24,12 +24,8 @@
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         /* Navbar Styling */
@@ -46,17 +42,14 @@
             justify-content: space-between;
             align-items: center;
         }
-
         .logo {
             color: #fff;
             text-decoration: none;
             font-size: 24px;
         }
-
         .navbar {
             display: flex;
         }
-
         .navbar a {
             color: #fff;
             padding: 10px 20px;
@@ -65,7 +58,6 @@
             font-size: 16px;
             transition: 0.3s;
         }
-
         .navbar a:hover {
             background-color: #3a3a3a;
             border-radius: 5px;
@@ -108,7 +100,6 @@
             margin-top: 80px;
             padding: 50px 20px;
         }
-
         h2 {
             font-size: 36px;
             margin-bottom: 20px;
@@ -125,16 +116,11 @@
             border-radius: 10px;
             border: 2px solid #00ff00;
         }
-
         .carousel-track {
             display: flex;
             transition: transform 0.5s ease-in-out;
             will-change: transform;
-            backface-visibility: hidden;
-            -webkit-backface-visibility: hidden;
-            transform-style: preserve-3d;
         }
-
         .carousel-item {
             min-width: 100%;
             padding: 30px;
@@ -142,14 +128,12 @@
             border-radius: 10px;
             transition: 0.5s;
         }
-
         .project-title {
             font-size: 22px;
             font-weight: bold;
             margin-bottom: 10px;
             color: #00ff00;
         }
-
         .project-description {
             font-size: 16px;
             color: #ddd;
@@ -159,7 +143,6 @@
         .carousel-buttons {
             margin-top: 15px;
         }
-
         .carousel-button {
             padding: 10px 20px;
             margin: 5px;
@@ -171,7 +154,6 @@
             cursor: pointer;
             transition: 0.3s;
         }
-
         .carousel-button:hover {
             background: #009900;
         }
@@ -194,6 +176,12 @@
         <h2>My Projects</h2>
         <div class="carousel">
             <div class="carousel-track">
+                <div class="carousel-item">
+                    <div class="project-title">VAPT Project - Web Application Security Testing</div>
+                    <div class="project-description">
+                        Conducted Vulnerability Assessment and Penetration Testing on various websites, identifying issues like SQL Injection, XSS, CSRF, and Parameter Tampering with detailed reporting.
+                    </div>
+                </div>
                 <div class="carousel-item">
                     <div class="project-title">SOC Project - Website Log Monitoring Using Splunk</div>
                     <div class="project-description">
@@ -247,12 +235,12 @@
             updateSlide();
         }
 
-        // Automatic slide removed to make manual only
-        // setInterval(nextSlide, 4000);
+        // Removed automatic sliding to make it manual only
 
         function toggleMenu() {
             document.querySelector('.navbar').classList.toggle('active');
         }
     </script>
+
 </body>
 </html>
